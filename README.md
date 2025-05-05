@@ -1,12 +1,12 @@
-# CrossDebate: Plataforma Pedagógica para Integração de IA em Engenharia de Software
+# CCLOLMAS: Plataforma Pedagógica para Integração de IA em Engenharia de Software
 
-![CrossDebate Logo Placeholder](assets/images/logo.png) <!-- Placeholder: Replace with actual logo path if available -->
+![CCLOLMAS Logo Placeholder](assets/images/logo.png) <!-- Placeholder: Replace with actual logo path if available -->
 
 ## Visão Geral
 
-CrossDebate é uma plataforma pedagógica inovadora, desenvolvida com **React** (frontend) e **FastAPI** (backend), projetada para enfrentar o desafio de integrar tópicos avançados e disruptivos de Inteligência Artificial (IA) – como **orquestração de Sistemas Multi-Agente Locais (LMAS)** e **ajuste fino eficiente (fine-tuning) via QLoRA** – nos currículos de Engenharia de Software (SE). A plataforma serve como uma ferramenta prática e um ambiente de aprendizado que operacionaliza um quadro pedagógico centrado na gestão ativa da interdependência crítica entre a **Carga Cognitiva (CL)** do estudante e a **Carga Computacional (CompL)** do ambiente de execução.
+CCLOLMAS é uma plataforma pedagógica inovadora, desenvolvida com **React** (frontend) e **FastAPI** (backend), projetada para enfrentar o desafio de integrar tópicos avançados e disruptivos de Inteligência Artificial (IA) – como **orquestração de Sistemas Multi-Agente Locais (LMAS)** e **ajuste fino eficiente (fine-tuning) via QLoRA** – nos currículos de Engenharia de Software (SE). A plataforma serve como uma ferramenta prática e um ambiente de aprendizado que operacionaliza um quadro pedagógico centrado na gestão ativa da interdependência crítica entre a **Carga Cognitiva (CL)** do estudante e a **Carga Computacional (CompL)** do ambiente de execução.
 
-O principal objetivo do CrossDebate é capacitar estudantes e educadores a navegar pelas complexidades da IA moderna em cenários realistas, especialmente em ambientes com **recursos computacionais limitados**, uma realidade comum em muitas instituições de ensino brasileiras. A plataforma facilita a exploração de trade-offs, promove a metacognição sobre a interação humano-máquina e apoia o desenvolvimento de competências essenciais para a próxima geração de engenheiros de software.
+O principal objetivo do CCLOLMAS é capacitar estudantes e educadores a navegar pelas complexidades da IA moderna em cenários realistas, especialmente em ambientes com **recursos computacionais limitados**, uma realidade comum em muitas instituições de ensino brasileiras. A plataforma facilita a exploração de trade-offs, promove a metacognição sobre a interação humano-máquina e apoia o desenvolvimento de competências essenciais para a próxima geração de engenheiros de software.
 
 ## Motivação
 
@@ -19,11 +19,11 @@ A Engenharia de Software está sendo transformada pela IA Generativa (GenAI), cr
 5.  **Lacuna Pedagógica:** Falta um quadro pedagógico sistemático que aborde explicitamente a gestão da interação CL-CompL como um objetivo de aprendizagem central, especialmente considerando a necessidade de encontrar um "ponto ideal" (Hipótese H3) e adaptar a instrução à expertise do aluno (Hipótese H4).
 6.  **Contexto Brasileiro:** A variação na oferta de vagas e a infraestrutura desigual reforçam a necessidade de abordagens pedagógicas que transformem a limitação de recursos em oportunidade formativa, alinhando-se também a iniciativas estratégicas como o Brics Educação e a necessidade de práticas responsáveis em IA.
 
-CrossDebate foi criado para preencher essas lacunas, oferecendo um ambiente controlado onde a dinâmica CL-CompL pode ser explorada, gerenciada e compreendida como parte fundamental da prática de engenharia de software na era da IA.
+CCLOLMAS foi criado para preencher essas lacunas, oferecendo um ambiente controlado onde a dinâmica CL-CompL pode ser explorada, gerenciada e compreendida como parte fundamental da prática de engenharia de software na era da IA.
 
 ## Funcionalidades Principais
 
-CrossDebate implementa um conjunto de funcionalidades diretamente alinhadas aos desafios e ao quadro pedagógico proposto no estudo:
+CCLOLMAS implementa um conjunto de funcionalidades diretamente alinhadas aos desafios e ao quadro pedagógico proposto no estudo:
 
 ### 1. Suporte à Gestão Explícita da Interação CL-CompL
    *   **Monitoramento Integrado:** Visualização em tempo real (ou pós-execução) de métricas de CompL (uso de VRAM, RAM, tempo de execução, latência) lado a lado com proxies de CL (ex: autoavaliações baseadas em questionários como SEQ/NASA-TLX adaptado, observações do instrutor).
@@ -49,14 +49,14 @@ CrossDebate implementa um conjunto de funcionalidades diretamente alinhadas aos 
 ### 4. Usabilidade e Design Instrucional
    *   **Interface Intuitiva:** Frontend em React projetado com base em princípios de HCI (Nielsen, 1993; Norman, 1988) para minimizar a ECL. O design da interface (ex: painel de ajuste fino da Figura 1) visa clareza e facilidade de uso.
    *   **Foco na Metacognição:** A plataforma incentiva os alunos a refletir sobre suas escolhas (ex: justificar a escolha entre Q4 e Q8), monitorar seu próprio esforço (CL) e avaliar os resultados em relação aos custos (CompL), buscando o "ponto ideal" (H3).
-   *   **Testes de Usabilidade:** A própria plataforma é objeto de testes de usabilidade focados em medir a CL percebida (usando NASA-TLX), garantindo um ciclo de melhoria contínua (conforme snippet `Testes de Usabilidade da Plataforma CrossDebate`).
+   *   **Testes de Usabilidade:** A própria plataforma é objeto de testes de usabilidade focados em medir a CL percebida (usando NASA-TLX), garantindo um ciclo de melhoria contínua (conforme snippet `Testes de Usabilidade da Plataforma CCLOLMAS`).
 
 ### 5. Integração com o Ecossistema Open Source
    *   Compatibilidade e integração guiada com ferramentas padrão da indústria como **Ollama**, **LangChain**, `llama-cpp-python`, e modelos do **Hugging Face**, preparando os alunos para o ambiente profissional.
 
 ## Abordagem Pedagógica Suportada
 
-CrossDebate não é apenas uma ferramenta técnica, mas a personificação de uma abordagem pedagógica específica:
+CCLOLMAS não é apenas uma ferramenta técnica, mas a personificação de uma abordagem pedagógica específica:
 
 1.  **Reconhecimento Explícito da Interdependência CL-CompL:** As atividades são projetadas para tornar essa dinâmica visível e um objeto de estudo em si.
 2.  **Busca pelo "Ponto Ideal" como Competência Metacognitiva:** O objetivo não é apenas executar tarefas de IA, mas aprender a otimizar o equilíbrio entre esforço cognitivo, recursos computacionais e qualidade do resultado.
@@ -91,8 +91,8 @@ CrossDebate não é apenas uma ferramenta técnica, mas a personificação de um
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/crossdebate_platform.git # Substitua pela URL real
-cd crossdebate_platform
+git clone https://github.com/seu-usuario/CCLOLMAS_platform.git # Substitua pela URL real
+cd CCLOLMAS_platform
 
 # 2. Configure o Backend (FastAPI)
 cd backend # Ou diretório equivalente
@@ -188,10 +188,10 @@ Acesse a plataforma no seu navegador, geralmente em `http://localhost:3000`.
 # Exemplo de script (poderia ser executado via interface ou notebook na plataforma)
 # Simula um estudante usando a API do monitor durante uma tarefa complexa
 
-from crossdebate.client import CrossDebateClient # API hipotética do cliente
-from crossdebate.monitoring import CLCompLMonitor # API hipotética do monitor
+from CCLOLMAS.client import CCLOLMASClient # API hipotética do cliente
+from CCLOLMAS.monitoring import CLCompLMonitor # API hipotética do monitor
 
-client = CrossDebateClient()
+client = CCLOLMASClient()
 monitor = CLCompLMonitor(enable_subjective_prompts=True) # Habilita prompts de CL
 
 # Inicia sessão de monitoramento para um aluno específico
@@ -246,14 +246,14 @@ finally:
 
 ## Contribuição
 
-Contribuições são bem-vindas! Se você deseja melhorar o CrossDebate, por favor, leia nossas [diretrizes de contribuição](CONTRIBUTING.md) (criar este arquivo com as diretrizes). Issues e Pull Requests são encorajados.
+Contribuições são bem-vindas! Se você deseja melhorar o CCLOLMAS, por favor, leia nossas [diretrizes de contribuição](CONTRIBUTING.md) (criar este arquivo com as diretrizes). Issues e Pull Requests são encorajados.
 
 ## Como Citar
 
-Se você utilizar o CrossDebate em sua pesquisa ou ensino, por favor, cite o trabalho original:
+Se você utilizar o CCLOLMAS em sua pesquisa ou ensino, por favor, cite o trabalho original:
 
 ```
-PESSOA JÚNIOR, H. C. CrossDebate: Uma plataforma para integração pedagógica de IA avançada em currículos de Engenharia de Software. [Detalhes da Publicação - Ex: Tese, Artigo, Repositório]. 2025.
+PESSOA JÚNIOR, H. C. CCLOLMAS: Uma plataforma para integração pedagógica de IA avançada em currículos de Engenharia de Software. [Detalhes da Publicação - Ex: Tese, Artigo, Repositório]. 2025.
 ```
 *(Nota: Atualize com os detalhes corretos da publicação quando disponíveis)*
 
