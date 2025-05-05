@@ -1,7 +1,5 @@
 # CCLOLMAS: Sistema Multi-Agente Local com Orquestrador de Carga Cognitivo-Computacional
 
-![CCLOLMAS Logo Placeholder](assets/images/logo.png) <!-- Placeholder: Replace with actual logo path if available -->
-
 ## Visão Geral
 
 CCLOLMAS é uma plataforma pedagógica inovadora, desenvolvida com **React** (frontend) e **FastAPI** (backend), projetada para enfrentar o desafio de integrar tópicos avançados e disruptivos de Inteligência Artificial (IA) – como **orquestração de Sistemas Multi-Agente Locais (LMAS)** e **ajuste fino eficiente (fine-tuning) via QLoRA** – nos currículos de Engenharia de Software (SE). A plataforma serve como uma ferramenta prática e um ambiente de aprendizado que operacionaliza um quadro pedagógico centrado na gestão ativa da interdependência crítica entre a **Carga Cognitiva (CL)** do estudante e a **Carga Computacional (CompL)** do ambiente de execução.
