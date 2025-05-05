@@ -1,4 +1,4 @@
-# CCLOLMAS: Plataforma Pedagógica para Integração de IA em Engenharia de Software
+# CCLOLMAS: Sistema Multi-Agente Local com Orquestrador de Carga Cognitivo-Computacional
 
 ![CCLOLMAS Logo Placeholder](assets/images/logo.png) <!-- Placeholder: Replace with actual logo path if available -->
 
