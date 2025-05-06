@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # CCLOLMAS: Plataforma Pedagógica para Integração de IA em Engenharia de Software
 
-Bem-vindo ao CCLOLMAS. Este README foi reformulado para refletir as melhorias e funcionalidades recentes.
+![CCLOLMAS Frontend](assets/frontend.png)
 
 ## Principais Alterações Recentes
 
@@ -12,10 +11,8 @@ Bem-vindo ao CCLOLMAS. Este README foi reformulado para refletir as melhorias e 
 - **Documentação de QA e Diagnóstico:** Adição de instruções para uso do sistema de diagnóstico e comandos de QA no frontend.
 - **Lista de Modelos e Frameworks Suportados:** Atualização e detalhamento dos modelos LLM e frameworks integrados.
 - **Seção de Contribuição e Citação:** Orientações para contribuidores e instruções de citação acadêmica.
-=======
-# CCLOLMAS: Sistema Multi-Agente Local com Orquestrador de Carga Cognitivo-Computacional
 
->>>>>>> origin/main
+# CCLOLMAS: Sistema Multi-Agente Local com Orquestrador de Carga Cognitivo-Computacional
 
 ## Visão Geral
 
@@ -23,14 +20,13 @@ CCLOLMAS é uma plataforma pedagógica inovadora, desenvolvida com **React** (fr
 
 O principal objetivo do CCLOLMAS é capacitar estudantes e educadores a navegar pelas complexidades da IA moderna em cenários realistas, especialmente em ambientes com **recursos computacionais limitados**, uma realidade comum em muitas instituições de ensino brasileiras. A plataforma facilita a exploração de trade-offs, promove a metacognição sobre a interação humano-máquina e apoia o desenvolvimento de competências essenciais para a próxima geração de engenheiros de software.
 
-<<<<<<< HEAD
 ## Funcionalidades Principais
 
-1. **Ajuste Fino QLoRA (Q4 vs Q8):** Permite comparar uso de VRAM (CompL) e esforço cognitivo (CL).  
-2. **Monitoramento e Relatórios:** Ferramentas de análise de métricas em tempo real (ou pós-execução), com possibilidade de gerar relatórios de teste e usabilidade.  
-3. **Visualização CL-CompL:** Gráficos interativos que facilitam a identificação de padrões e tendências no desenvolvimento de software.  
+1. **Ajuste Fino QLoRA (Q4 vs Q8):** Permite comparar uso de VRAM (CompL) e esforço cognitivo (CL).
+2. **Monitoramento e Relatórios:** Ferramentas de análise de métricas em tempo real (ou pós-execução), com possibilidade de gerar relatórios de teste e usabilidade.
+3. **Visualização CL-CompL:** Gráficos interativos que facilitam a identificação de padrões e tendências no desenvolvimento de software.
 4. **Suporte a Vários Modelos:** Integração com projetos locais (GGUF) ou via Hugging Face, usando bibliotecas como `llama-cpp-python`.
-=======
+
 ## Motivação
 
 A Engenharia de Software está sendo transformada pela IA Generativa (GenAI), criando uma demanda urgente por profissionais com competências em IA. No entanto, a educação em SE no Brasil, apesar dos esforços (PNE, DCNs), luta para incorporar adequadamente esses avanços, especialmente tópicos complexos como ajuste fino local (QLoRA) e orquestração de LMAS. Esses tópicos impõem desafios significativos:
@@ -45,7 +41,6 @@ A Engenharia de Software está sendo transformada pela IA Generativa (GenAI), cr
 CCLOLMAS foi criado para preencher essas lacunas, oferecendo um ambiente controlado onde a dinâmica CL-CompL pode ser explorada, gerenciada e compreendida como parte fundamental da prática de engenharia de software na era da IA.
 
 ## Funcionalidades Principais
->>>>>>> origin/main
 
 CCLOLMAS implementa um conjunto de funcionalidades diretamente alinhadas aos desafios e ao quadro pedagógico proposto no estudo:
 
@@ -92,19 +87,13 @@ CCLOLMAS não é apenas uma ferramenta técnica, mas a personificação de uma a
 
 ## Arquitetura Técnica
 
-<<<<<<< HEAD
-- **Frontend React** para visualizações avançadas e interatividade.  
-- **Backend FastAPI** para gerenciamento de rotas e operações de IA.  
-- **Módulos de Integração** que conectam métricas de performance (CompL) com medições de esforço (CL).  
-=======
--   **Frontend:** **React.js** - Proporciona uma interface de usuário rica, interativa e responsiva, otimizada para visualização de dados e fluxos de trabalho complexos.
--   **Backend:** **FastAPI** (Python) - Oferece alta performance, suporte nativo a operações assíncronas (crucial para lidar com tarefas de IA de longa duração) e facilidade no desenvolvimento de APIs RESTful.
->>>>>>> origin/main
+- **Frontend React** para visualizações avançadas e interatividade.
+- **Backend FastAPI** para gerenciamento de rotas e operações de IA.
+- **Módulos de Integração** que conectam métricas de performance (CompL) com medições de esforço (CL).
 -   **Integração de IA:** Utiliza bibliotecas como `transformers`, `PEFT` (Parameter-Efficient Fine-Tuning), `bitsandbytes` (para quantização), `llama-cpp-python` (para inferência GGUF), `LangChain`, `CrewAI` para orquestração.
 -   **Monitoramento:** Módulos customizados para capturar métricas de sistema (VRAM, CPU, RAM via `psutil` ou `nvidia-smi`) e integrar com mecanismos de coleta de feedback subjetivo (CL).
 -   **Persistência:** Banco de dados (não especificado no texto, mas implícito para gerenciar usuários, projetos, resultados) e armazenamento de arquivos para modelos, datasets e logs.
 
-<<<<<<< HEAD
 ## Desenvolvimento e QA
 
 ### Sistema de Qualidade
@@ -141,90 +130,27 @@ qaUtils.createPlaceholder('elemento-id', 'módulo-nome');
 
 ## Instalação
 
-1. **Clonar o Repositório:**  
+1. **Clonar o Repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/crossdebate_platform.git
+   git clone https://github.com/seu-usuario/CCLOLMAS_platform.git
    ```
-2. **Configurar o Backend (Python/FastAPI):**  
+2. **Configurar o Backend (Python/FastAPI):**
    ```bash
    cd backend
    python -m venv venv
    source venv/bin/activate  # Linux/macOS
    pip install -r requirements.txt
    ```
-3. **Configurar o Frontend (React):**  
+3. **Configurar o Frontend (React):**
    ```bash
    cd ../frontend
    npm install
    ```
-4. **Modelos GGUF (Opcional):**  
+4. **Modelos GGUF (Opcional):**
    ```bash
    mkdir -p models/gguf
    # Baixar modelos Q4 e Q8 conforme necessário
    ```
-=======
-## Iniciando
-
-### Pré-requisitos
-
--   Python 3.10+
--   Node.js 18+
--   Gerenciador de pacotes `pip` e `npm` (ou `yarn`)
--   **GPU NVIDIA com suporte a CUDA 11.8+ e VRAM de:**
-    *   Mínimo 6-8GB para modelos menores (ex: Phi-3-mini, Mistral 7B Q4) e tarefas básicas.
-    *   **Recomendado 16GB+** para ajuste fino QLoRA e LMAS mais complexos (conforme snippet `QLoRA Fine-Tuning Experiment`).
--   Drivers NVIDIA e CUDA Toolkit instalados.
--   `git` para clonar o repositório.
-
-### Instalação
-
-```bash
-# 1. Clone o repositório
-git clone https://github.com/seu-usuario/CCLOLMAS_platform.git # Substitua pela URL real
-cd CCLOLMAS_platform
-
-# 2. Configure o Backend (FastAPI)
-cd backend # Ou diretório equivalente
-python -m venv venv
-# Ative o ambiente virtual
-# Linux/macOS:
-source venv/bin/activate
-# Windows:
-# venv\Scripts\activate
-pip install -r requirements.txt
-cd ..
-
-# 3. Configure o Frontend (React)
-cd frontend # Ou diretório equivalente
-npm install # Ou yarn install
-cd ..
-
-# 4. Baixe Modelos GGUF de Exemplo (Ex: Mistral 7B Q4 e Q8)
-# (Necessário para os laboratórios comparativos Q4 vs Q8)
-mkdir -p models/gguf # Ou diretório configurado
-cd models/gguf
-# Exemplo usando curl (pode usar wget ou baixar manualmente)
-# Modelo Q4 (Menor CompL, potencialmente maior CL - H1)
-curl -L -o mistral-7b-instruct-v0.2.Q4_K_M.gguf https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/resolve/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf
-# Modelo Q8 (Maior CompL, potencialmente menor CL - H3 "sweet spot")
-curl -L -o mistral-7b-instruct-v0.2.Q8_0.gguf https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/resolve/main/mistral-7b-instruct-v0.2.Q8_0.gguf
-cd ../..
-
-# 5. (Opcional) Configure variáveis de ambiente (ex: caminhos de modelo, chaves de API se necessário)
-# Crie um arquivo .env conforme .env.example, se fornecido
-
-# 6. Inicie os Serviços
-# Terminal 1: Backend FastAPI
-cd backend # Ou diretório equivalente
-source venv/bin/activate # Se não estiver ativo
-uvicorn main:app --reload --host 0.0.0.0 --port 8000 # Exemplo de comando de execução
-# Verifique a documentação específica do backend para o comando correto
-
-# Terminal 2: Frontend React
-cd frontend # Ou diretório equivalente
-npm start # Ou yarn start
-```
->>>>>>> origin/main
 
 Acesse a plataforma no seu navegador, geralmente em `http://localhost:3000`.
 
@@ -278,13 +204,8 @@ Acesse a plataforma no seu navegador, geralmente em `http://localhost:3000`.
 # Exemplo de script (poderia ser executado via interface ou notebook na plataforma)
 # Simula um estudante usando a API do monitor durante uma tarefa complexa
 
-<<<<<<< HEAD
-from crossdebate.client import CCLOLMASClient # API hipotética do cliente
-from crossdebate.monitoring import CLCompLMonitor # API hipotética do monitor
-=======
 from CCLOLMAS.client import CCLOLMASClient # API hipotética do cliente
 from CCLOLMAS.monitoring import CLCompLMonitor # API hipotética do monitor
->>>>>>> origin/main
 
 client = CCLOLMASClient()
 monitor = CLCompLMonitor(enable_subjective_prompts=True) # Habilita prompts de CL
@@ -355,13 +276,11 @@ PESSOA JÚNIOR, H. C. CCLOLMAS: Uma plataforma para integração pedagógica de 
 ## Licença
 
 Este projeto é licenciado sob a [MIT License](LICENSE).
-<<<<<<< HEAD
-=======
 
-# CCLO-LMAS Project
+# CCLOLMAS Project
 
 ## Overview
-CCLO-LMAS is a project focused on balancing computational and cognitive loads in language model applications.
+CCLOLMAS is a project focused on balancing computational and cognitive loads in language model applications.
 
 ## Installation
 
@@ -388,4 +307,3 @@ python -m tests.quantization.run_tests --model "meta-llama/Llama-2-7b-hf" --alte
 
 ## Development
 The project is still under development. See the issues for current tasks and roadmap.
->>>>>>> origin/main
