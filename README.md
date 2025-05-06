@@ -1,6 +1,6 @@
 # CCLOLMAS: Plataforma Pedagógica para Integração de IA em Engenharia de Software
 
-![CCLOLMAS Frontend](assets/frontend.png)
+![CrossDebate Frontend](assets/frontend.png)
 
 ## Principais Alterações Recentes
 
@@ -33,7 +33,7 @@ A Engenharia de Software está sendo transformada pela IA Generativa (GenAI), cr
 
 1.  **Alta Complexidade Intrínseca (ICL):** Os conceitos e procedimentos são inerentemente complexos.
 2.  **Ferramentas Imaturas/Não Ergonômicas:** Muitas ferramentas aumentam a Carga Extrínseca (ECL), dificultando o aprendizado.
-3.  **Restrições de Hardware:** A execução local de modelos de linguagem grandes (LLMs) e tarefas de IA intensivas (fine-tuning, LMAS) exige recursos computacionais (VRAM, CPU, RAM) que muitas vezes excedem a capacidade disponível em ambientes acadêmicos.
+3.  **Restrições de Hardware:** A execução local de modelos de linguagem grandes (LLMs) e tarefas de IA intensivas (fine-tuning, LMAS) exige recursos computacionais (GPU, VRAM, RAM) que muitas vezes excedem a capacidade disponível em ambientes acadêmicos.
 4.  **Interdependência CL-CompL:** A necessidade de otimizar a CompL (ex: usando quantização agressiva como Q4) pode paradoxalmente aumentar a CL devido à instabilidade, dificuldade de depuração e resultados incertos (Hipótese H1). Tarefas complexas como LMAS aumentam ambas as cargas (Hipótese H2). Ignorar essa dinâmica leva à sobrecarga cognitiva ou à inviabilidade prática das atividades.
 5.  **Lacuna Pedagógica:** Falta um quadro pedagógico sistemático que aborde explicitamente a gestão da interação CL-CompL como um objetivo de aprendizagem central, especialmente considerando a necessidade de encontrar um "ponto ideal" (Hipótese H3) e adaptar a instrução à expertise do aluno (Hipótese H4).
 6.  **Contexto Brasileiro:** A variação na oferta de vagas e a infraestrutura desigual reforçam a necessidade de abordagens pedagógicas que transformem a limitação de recursos em oportunidade formativa, alinhando-se também a iniciativas estratégicas como o Brics Educação e a necessidade de práticas responsáveis em IA.
@@ -91,7 +91,7 @@ CCLOLMAS não é apenas uma ferramenta técnica, mas a personificação de uma a
 - **Backend FastAPI** para gerenciamento de rotas e operações de IA.
 - **Módulos de Integração** que conectam métricas de performance (CompL) com medições de esforço (CL).
 -   **Integração de IA:** Utiliza bibliotecas como `transformers`, `PEFT` (Parameter-Efficient Fine-Tuning), `bitsandbytes` (para quantização), `llama-cpp-python` (para inferência GGUF), `LangChain`, `CrewAI` para orquestração.
--   **Monitoramento:** Módulos customizados para capturar métricas de sistema (VRAM, CPU, RAM via `psutil` ou `nvidia-smi`) e integrar com mecanismos de coleta de feedback subjetivo (CL).
+-   **Monitoramento:** Módulos customizados para capturar métricas de sistema (GPU, VRAM, RAM via `psutil` ou `nvidia-smi`) e integrar com mecanismos de coleta de feedback subjetivo (CL).
 -   **Persistência:** Banco de dados (não especificado no texto, mas implícito para gerenciar usuários, projetos, resultados) e armazenamento de arquivos para modelos, datasets e logs.
 
 ## Desenvolvimento e QA
@@ -132,7 +132,7 @@ qaUtils.createPlaceholder('elemento-id', 'módulo-nome');
 
 1. **Clonar o Repositório:**
    ```bash
-   git clone https://github.com/seu-usuario/CCLOLMAS_platform.git
+   git clone https://github.com/seu-usuario/crossdebate_platform.git
    ```
 2. **Configurar o Backend (Python/FastAPI):**
    ```bash
@@ -204,8 +204,8 @@ Acesse a plataforma no seu navegador, geralmente em `http://localhost:3000`.
 # Exemplo de script (poderia ser executado via interface ou notebook na plataforma)
 # Simula um estudante usando a API do monitor durante uma tarefa complexa
 
-from CCLOLMAS.client import CCLOLMASClient # API hipotética do cliente
-from CCLOLMAS.monitoring import CLCompLMonitor # API hipotética do monitor
+from crossdebate.client import CCLOLMASClient # API hipotética do cliente
+from crossdebate.monitoring import CLCompLMonitor # API hipotética do monitor
 
 client = CCLOLMASClient()
 monitor = CLCompLMonitor(enable_subjective_prompts=True) # Habilita prompts de CL
@@ -223,7 +223,7 @@ try:
         monitor_session_id=session_id # Associa a tarefa à sessão de monitoramento
     )
 
-    # Durante a execução, a plataforma coleta CompL (VRAM, CPU)
+    # Durante a execução, a plataforma coleta CompL (GPU, VRAM)
     # e pode periodicamente apresentar prompts de CL (SEQ) ao usuário na interface
 
     results = client.wait_for_job(finetune_job)
