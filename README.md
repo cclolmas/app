@@ -1,25 +1,29 @@
 # CCLOLMAS: Plataforma Pedagógica para Integração de IA em Engenharia de Software
 
+Bem-vindo ao CCLOLMAS. Este README foi reformulado para refletir as melhorias e funcionalidades recentes.
+
+## Principais Alterações Recentes
+
+- **Reformulação do README:** Estrutura reorganizada para maior clareza, incluindo visão geral, funcionalidades, abordagem pedagógica, arquitetura, exemplos e instruções detalhadas.
+- **Exemplos Pedagógicos Detalhados:** Inclusão de três exemplos completos de uso, cobrindo desde laboratórios comparativos (QLoRA Q4 vs Q8), orquestração multi-agente (LMAS) até monitoramento integrado de CL-CompL.
+- **Expansão das Funcionalidades:** Descrição ampliada das ferramentas de monitoramento, scaffolding adaptativo, gerenciamento assíncrono e integração com frameworks como LangChain, CrewAI e Ollama.
+- **Seção de Instalação Atualizada:** Passos de instalação simplificados e comandos revisados para backend, frontend e modelos GGUF.
+- **Documentação de QA e Diagnóstico:** Adição de instruções para uso do sistema de diagnóstico e comandos de QA no frontend.
+- **Lista de Modelos e Frameworks Suportados:** Atualização e detalhamento dos modelos LLM e frameworks integrados.
+- **Seção de Contribuição e Citação:** Orientações para contribuidores e instruções de citação acadêmica.
+
 ## Visão Geral
 
 CCLOLMAS é uma plataforma pedagógica inovadora, desenvolvida com **React** (frontend) e **FastAPI** (backend), projetada para enfrentar o desafio de integrar tópicos avançados e disruptivos de Inteligência Artificial (IA) – como **orquestração de Sistemas Multi-Agente Locais (LMAS)** e **ajuste fino eficiente (fine-tuning) via QLoRA** – nos currículos de Engenharia de Software (SE). A plataforma serve como uma ferramenta prática e um ambiente de aprendizado que operacionaliza um quadro pedagógico centrado na gestão ativa da interdependência crítica entre a **Carga Cognitiva (CL)** do estudante e a **Carga Computacional (CompL)** do ambiente de execução.
 
 O principal objetivo do CCLOLMAS é capacitar estudantes e educadores a navegar pelas complexidades da IA moderna em cenários realistas, especialmente em ambientes com **recursos computacionais limitados**, uma realidade comum em muitas instituições de ensino brasileiras. A plataforma facilita a exploração de trade-offs, promove a metacognição sobre a interação humano-máquina e apoia o desenvolvimento de competências essenciais para a próxima geração de engenheiros de software.
 
-## Motivação
-
-A Engenharia de Software está sendo transformada pela IA Generativa (GenAI), criando uma demanda urgente por profissionais com competências em IA. No entanto, a educação em SE no Brasil, apesar dos esforços (PNE, DCNs), luta para incorporar adequadamente esses avanços, especialmente tópicos complexos como ajuste fino local (QLoRA) e orquestração de LMAS. Esses tópicos impõem desafios significativos:
-
-1.  **Alta Complexidade Intrínseca (ICL):** Os conceitos e procedimentos são inerentemente complexos.
-2.  **Ferramentas Imaturas/Não Ergonômicas:** Muitas ferramentas aumentam a Carga Extrínseca (ECL), dificultando o aprendizado.
-3.  **Restrições de Hardware:** A execução local de modelos de linguagem grandes (LLMs) e tarefas de IA intensivas (fine-tuning, LMAS) exige recursos computacionais (VRAM, CPU, RAM) que muitas vezes excedem a capacidade disponível em ambientes acadêmicos.
-4.  **Interdependência CL-CompL:** A necessidade de otimizar a CompL (ex: usando quantização agressiva como Q4) pode paradoxalmente aumentar a CL devido à instabilidade, dificuldade de depuração e resultados incertos (Hipótese H1). Tarefas complexas como LMAS aumentam ambas as cargas (Hipótese H2). Ignorar essa dinâmica leva à sobrecarga cognitiva ou à inviabilidade prática das atividades.
-5.  **Lacuna Pedagógica:** Falta um quadro pedagógico sistemático que aborde explicitamente a gestão da interação CL-CompL como um objetivo de aprendizagem central, especialmente considerando a necessidade de encontrar um "ponto ideal" (Hipótese H3) e adaptar a instrução à expertise do aluno (Hipótese H4).
-6.  **Contexto Brasileiro:** A variação na oferta de vagas e a infraestrutura desigual reforçam a necessidade de abordagens pedagógicas que transformem a limitação de recursos em oportunidade formativa, alinhando-se também a iniciativas estratégicas como o Brics Educação e a necessidade de práticas responsáveis em IA.
-
-CCLOLMAS foi criado para preencher essas lacunas, oferecendo um ambiente controlado onde a dinâmica CL-CompL pode ser explorada, gerenciada e compreendida como parte fundamental da prática de engenharia de software na era da IA.
-
 ## Funcionalidades Principais
+
+1. **Ajuste Fino QLoRA (Q4 vs Q8):** Permite comparar uso de VRAM (CompL) e esforço cognitivo (CL).  
+2. **Monitoramento e Relatórios:** Ferramentas de análise de métricas em tempo real (ou pós-execução), com possibilidade de gerar relatórios de teste e usabilidade.  
+3. **Visualização CL-CompL:** Gráficos interativos que facilitam a identificação de padrões e tendências no desenvolvimento de software.  
+4. **Suporte a Vários Modelos:** Integração com projetos locais (GGUF) ou via Hugging Face, usando bibliotecas como `llama-cpp-python`.
 
 CCLOLMAS implementa um conjunto de funcionalidades diretamente alinhadas aos desafios e ao quadro pedagógico proposto no estudo:
 
@@ -66,8 +70,9 @@ CCLOLMAS não é apenas uma ferramenta técnica, mas a personificação de uma a
 
 ## Arquitetura Técnica
 
--   **Frontend:** **React.js** - Proporciona uma interface de usuário rica, interativa e responsiva, otimizada para visualização de dados e fluxos de trabalho complexos.
--   **Backend:** **FastAPI** (Python) - Oferece alta performance, suporte nativo a operações assíncronas (crucial para lidar com tarefas de IA de longa duração) e facilidade no desenvolvimento de APIs RESTful.
+- **Frontend React** para visualizações avançadas e interatividade.  
+- **Backend FastAPI** para gerenciamento de rotas e operações de IA.  
+- **Módulos de Integração** que conectam métricas de performance (CompL) com medições de esforço (CL).  
 -   **Integração de IA:** Utiliza bibliotecas como `transformers`, `PEFT` (Parameter-Efficient Fine-Tuning), `bitsandbytes` (para quantização), `llama-cpp-python` (para inferência GGUF), `LangChain`, `CrewAI` para orquestração.
 -   **Monitoramento:** Módulos customizados para capturar métricas de sistema (VRAM, CPU, RAM via `psutil` ou `nvidia-smi`) e integrar com mecanismos de coleta de feedback subjetivo (CL).
 -   **Persistência:** Banco de dados (não especificado no texto, mas implícito para gerenciar usuários, projetos, resultados) e armazenamento de arquivos para modelos, datasets e logs.
@@ -106,67 +111,29 @@ qaUtils.diagnose(true);
 qaUtils.createPlaceholder('elemento-id', 'módulo-nome');
 ```
 
-## Iniciando
+## Instalação
 
-### Pré-requisitos
-
--   Python 3.10+
--   Node.js 18+
--   Gerenciador de pacotes `pip` e `npm` (ou `yarn`)
--   **GPU NVIDIA com suporte a CUDA 11.8+ e VRAM de:**
-    *   Mínimo 6-8GB para modelos menores (ex: Phi-3-mini, Mistral 7B Q4) e tarefas básicas.
-    *   **Recomendado 16GB+** para ajuste fino QLoRA e LMAS mais complexos (conforme snippet `QLoRA Fine-Tuning Experiment`).
--   Drivers NVIDIA e CUDA Toolkit instalados.
--   `git` para clonar o repositório.
-
-### Instalação
-
-```bash
-# 1. Clone o repositório
-git clone https://github.com/seu-usuario/crossdebate_platform.git # Substitua pela URL real
-cd crossdebate_platform
-
-# 2. Configure o Backend (FastAPI)
-cd backend # Ou diretório equivalente
-python -m venv venv
-# Ative o ambiente virtual
-# Linux/macOS:
-source venv/bin/activate
-# Windows:
-# venv\Scripts\activate
-pip install -r requirements.txt
-cd ..
-
-# 3. Configure o Frontend (React)
-cd frontend # Ou diretório equivalente
-npm install # Ou yarn install
-cd ..
-
-# 4. Baixe Modelos GGUF de Exemplo (Ex: Mistral 7B Q4 e Q8)
-# (Necessário para os laboratórios comparativos Q4 vs Q8)
-mkdir -p models/gguf # Ou diretório configurado
-cd models/gguf
-# Exemplo usando curl (pode usar wget ou baixar manualmente)
-# Modelo Q4 (Menor CompL, potencialmente maior CL - H1)
-curl -L -o mistral-7b-instruct-v0.2.Q4_K_M.gguf https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/resolve/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf
-# Modelo Q8 (Maior CompL, potencialmente menor CL - H3 "sweet spot")
-curl -L -o mistral-7b-instruct-v0.2.Q8_0.gguf https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/resolve/main/mistral-7b-instruct-v0.2.Q8_0.gguf
-cd ../..
-
-# 5. (Opcional) Configure variáveis de ambiente (ex: caminhos de modelo, chaves de API se necessário)
-# Crie um arquivo .env conforme .env.example, se fornecido
-
-# 6. Inicie os Serviços
-# Terminal 1: Backend FastAPI
-cd backend # Ou diretório equivalente
-source venv/bin/activate # Se não estiver ativo
-uvicorn main:app --reload --host 0.0.0.0 --port 8000 # Exemplo de comando de execução
-# Verifique a documentação específica do backend para o comando correto
-
-# Terminal 2: Frontend React
-cd frontend # Ou diretório equivalente
-npm start # Ou yarn start
-```
+1. **Clonar o Repositório:**  
+   ```bash
+   git clone https://github.com/seu-usuario/crossdebate_platform.git
+   ```
+2. **Configurar o Backend (Python/FastAPI):**  
+   ```bash
+   cd backend
+   python -m venv venv
+   source venv/bin/activate  # Linux/macOS
+   pip install -r requirements.txt
+   ```
+3. **Configurar o Frontend (React):**  
+   ```bash
+   cd ../frontend
+   npm install
+   ```
+4. **Modelos GGUF (Opcional):**  
+   ```bash
+   mkdir -p models/gguf
+   # Baixar modelos Q4 e Q8 conforme necessário
+   ```
 
 Acesse a plataforma no seu navegador, geralmente em `http://localhost:3000`.
 
@@ -292,34 +259,3 @@ PESSOA JÚNIOR, H. C. CCLOLMAS: Uma plataforma para integração pedagógica de 
 ## Licença
 
 Este projeto é licenciado sob a [MIT License](LICENSE).
-
-# CCLO-LMAS Project
-
-## Overview
-CCLO-LMAS is a project focused on balancing computational and cognitive loads in language model applications.
-
-## Installation
-
-### Dependencies
-Install the required dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-### Running Tests
-To run the quantization tests:
-
-```bash
-python -m tests.quantization.run_tests --model "meta-llama/Llama-2-7b-hf" --alternations 5 --output-dir "./test_results" --verbose
-```
-
-## Project Structure
-
-- `js/`: Frontend JavaScript code
-- `tests/`: Test suites and utilities
-  - `quantization/`: Tests for model quantization effects
-  - `q_model_tester.py`: Utilities for testing models with different quantization
-
-## Development
-The project is still under development. See the issues for current tasks and roadmap.
