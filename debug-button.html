@@ -1,0 +1,26 @@
+<!-- Include this file using a server-side include or JavaScript -->
+<div id="debug-tools-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 10000;">
+  <button id="debug-charts-button" style="background: #3498db; color: white; border: none; border-radius: 4px; padding: 8px 12px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 6px;">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 14h14V2H1v12zm1-11h12v10H2V3z" fill="currentColor"/>
+      <path d="M4 12h1V6H4v6zm3 0h1V4H7v8zm3 0h1V8h-1v4zm3 0h1V5h-1v7z" fill="currentColor"/>
+    </svg>
+    Debug Charts
+  </button>
+</div>
+
+<script>
+  document.getElementById('debug-charts-button').addEventListener('click', function() {
+    if (window.ChartDebugTool) {
+      ChartDebugTool.runDiagnostics();
+    } else {
+      // Load the debug tool if not already loaded
+      const script = document.createElement('script');
+      script.src = '/js/chart-debug-tool.js';
+      script.onload = function() {
+        ChartDebugTool.runDiagnostics();
+      };
+      document.head.appendChild(script);
+    }
+  });
+</script>

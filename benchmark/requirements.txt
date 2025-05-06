@@ -1,0 +1,5 @@
+torch>=1.13.0
+transformers>=4.26.0
+matplotlib>=3.5.1
+numpy>=1.22.0
+psutil>=5.9.0

@@ -1,0 +1,139 @@
+/**
+ * Chart Container CSS Reset
+ * Ensures consistent styling for chart containers
+ */
+
+/* Base styles for all chart containers */
+.chart-container {
+  position: relative;
+  min-height: 250px;
+  height: 350px;
+  width: 100%;
+  margin: 15px 0;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Loading state */
+.chart-container:not(.loaded)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 5;
+}
+
+.chart-container:not(.loaded)::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 6;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Canvas within chart container */
+.chart-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Chart title */
+.chart-title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 2;
+}
+
+/* Error message for chart load failures */
+.chart-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  color: #e74c3c;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Fallback text */
+.chart-fallback-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Chart container sizes */
+.chart-container.small {
+  height: 200px;
+}
+
+.chart-container.large {
+  height: 450px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chart-container {
+    min-height: 200px;
+    height: 300px;
+  }
+}
+
+/* Debug mode style */
+.chart-container.debug {
+  border: 1px dashed #ff0000;
+}
+
+.chart-container.debug::before {
+  content: attr(id);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255,0,0,0.1);
+  font-size: 10px;
+  padding: 2px 5px;
+  z-index: 1000;
+}
+
+/* Chart host containers */
+.chart-host, .visualizations-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.chart-host .chart-container,
+.visualizations-container .chart-container {
+  flex: 1 1 300px;
+  min-width: 300px;
+}

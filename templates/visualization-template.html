@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualização CL-CompL</title>
+  
+  <style>
+    /* Basic styling for visualization components */
+    .visualization-container {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .chart-container {
+      height: 400px;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
+    .balance-indicator-container {
+      position: relative;
+      height: 60px;
+      background: #f5f5f5;
+      border-radius: 30px;
+      margin: 30px 0;
+    }
+    
+    .balance-track {
+      position: absolute;
+      top: 29px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(to right, #28a745, #ffc107, #dc3545);
+    }
+    
+    #balance-indicator {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #007bff;
+      border-radius: 50%;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: left 0.5s ease;
+    }
+    
+    .balance-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    
+    #balance-status-text {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    
+    #balance-status-text.compl-dominant { color: #28a745; }
+    #balance-status-text.compl-leaning { color: #5cb85c; }
+    #balance-status-text.balanced { color: #ffc107; }
+    #balance-status-text.cl-leaning { color: #f0ad4e; }
+    #balance-status-text.cl-dominant { color: #dc3545; }
+    
+    .visualization-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      display: none;
+    }
+    
+    table.comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    table.comparison-table th, table.comparison-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    table.comparison-table th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="visualization-container">
+    <h1>Visualização de Trade-offs CL-CompL</h1>
+    
+    <!-- Error message container -->
+    <div id="visualization-error" class="visualization-error"></div>
+    
+    <!-- Balance indicator -->
+    <h2>Indicador de Equilíbrio CL-CompL</h2>
+    <div class="balance-indicator-container">
+      <div class="balance-track"></div>
+      <div id="balance-indicator"></div>
+      <div class="balance-labels">
+        <span>CompL dominante</span>
+        <span>Equilíbrio ideal (H3)</span>
+        <span>CL dominante</span>
+      </div>
+      <div id="balance-status-text">Calculando equilíbrio...</div>
+    </div>
+    
+    <!-- Charts -->
+    <div class="charts-section">
+      <h2>Gráficos de Análise</h2>
+      
+      <!-- Histogram chart for CL distribution -->
+      <div class="chart-container">
+        <h3>Distribuição de Carga Cognitiva (CL)</h3>
+        <canvas id="cl-histogram-chart"></canvas>
+      </div>
+      
+      <!-- Bar chart for CL-CompL comparison -->
+      <div class="chart-container">
+        <h3>Comparação CL-CompL</h3>
+        <canvas id="cl-compl-comparison-chart"></canvas>
+      </div>
+    </div>
+    
+    <!-- Comparison table -->
+    <div class="table-section">
+      <h2>Tabela Comparativa</h2>
+      <table id="cl-compl-table" class="comparison-table">
+        <thead>
+          <tr>
+            <th>Ponto</th>
+            <th>Carga Cognitiva (CL)</th>
+            <th>Carga Computacional (CompL)</th>
+            <th>Equilíbrio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="4">Carregando dados...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- Load scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/js/balance-indicator.js"></script>
+  <script src="/js/chart-utils.js"></script>
+  <script src="/js/custom.js"></script>
+  <script src="/js/scripts.js"></script>
+</body>
+</html>

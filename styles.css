@@ -1,0 +1,412 @@
+/* Estilos básicos para a aplicação CCLOLMAS */
+
+/* Estilo para containers de gráficos */
+[id^="graph-"],
+.viz-container,
+.chart-container {
+  min-height: 240px;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+[id^="graph-"]:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Ajustes para elementos do GOV.BR */
+.br-button.circle.small.ml-1 {
+  margin-left: 0.25rem !important;
+}
+
+/* Estilo para destacar gráficos ao clicar em botões de configuração */
+.highlight-chart {
+  box-shadow: 0 0 0 2px #1351b4 !important;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(19, 81, 180, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(19, 81, 180, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(19, 81, 180, 0);
+  }
+}
+
+/* Theme variables */
+:root {
+  /* Light theme (default) */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --card-bg: #f8f9fa;
+  --border-color: #dee2e6;
+  --highlight-color: #007bff;
+  --header-bg: #ffffff;
+  --header-text: #333333;
+  --footer-bg: #f8f9fa;
+  --footer-text: #333333;
+  --dialog-bg: #ffffff;
+  --dialog-text: #333333;
+  --btn-primary-bg: #007bff;
+  --btn-primary-text: #ffffff;
+  --btn-secondary-bg: #6c757d;
+  --btn-secondary-text: #ffffff;
+  --alert-info-bg: #cce5ff;
+  --alert-info-text: #004085;
+  --alert-warning-bg: #fff3cd;
+  --alert-warning-text: #856404;
+  --tab-active-bg: #007bff;
+  --tab-active-text: #ffffff;
+  --graph-bg: #ffffff;
+  --graph-text: #333333;
+  --navbar-bg: #f8f9fa;
+  --link-color: #007bff;
+
+  /* Chart specific variables - Set to light theme values */
+  --chart-bg-color: #ffffff; /* Light background */
+  --chart-text-color: #333333; /* Dark text */
+  --chart-grid-color: #e0e0e0; /* Light grid lines */
+  --chart-axis-color: #666666; /* Medium gray axis lines */
+  --chart-series1-color: #1f77b4;
+  --chart-series2-color: #ff7f0e;
+  --chart-series3-color: #2ca02c;
+  --chart-series4-color: #d62728;
+  --chart-highlight-color: #ffbd45; /* Keep highlight distinct */
+}
+
+/* Apply theme colors - Basic elements */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos gerais */
+body {
+  font-family: 'Rawline', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  color: #1b1b1b;
+  background-color: #f8f8f8;
+}
+
+/* Fallback para fontes em conexões lentas */
+.use-fallback-fonts {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif !important;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6, .header-title, .header-subtitle, strong {
+  color: var(--text-color);
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+}
+
+a:hover {
+  color: var(--highlight-color);
+}
+
+/* Header Theme */
+.br-header {
+  background-color: var(--header-bg) !important;
+  color: var(--header-text) !important;
+}
+
+.header-info {
+  color: var(--header-text) !important;
+}
+
+/* Buttons */
+.br-button.primary {
+  background-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+}
+
+.br-button.secondary {
+  background-color: var(--btn-secondary-bg) !important;
+  color: var(--btn-secondary-text) !important;
+}
+
+.br-button.circle {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+}
+
+/* Cards and containers */
+.border {
+  border-color: var(--border-color) !important;
+}
+
+.bg-white, .bg-light {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.bg-gray-2 {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* Form elements */
+.form-control, .form-select, select, textarea, input {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+}
+
+.form-label, label {
+  color: var(--text-color) !important;
+}
+
+/* Alerts */
+.alert-info {
+  background-color: var(--alert-info-bg) !important;
+  color: var(--alert-info-text) !important;
+  border-color: var(--alert-info-bg) !important;
+}
+
+.alert-warning {
+  background-color: var(--alert-warning-bg) !important;
+  color: var(--alert-warning-text) !important;
+  border-color: var(--alert-warning-bg) !important;
+}
+
+/* Tabs */
+.br-tabs .tab-nav button {
+  color: var(--text-color) !important;
+}
+
+.br-tabs .tab-nav button[aria-selected="true"] {
+  background-color: var(--tab-active-bg) !important;
+  color: var(--tab-active-text) !important;
+}
+
+/* Visualization containers */
+.viz-container {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid var(--chart-grid-color); /* Use chart grid color for border */
+  min-height: 300px;
+  position: relative;
+  background-color: var(--chart-bg-color); /* Use CSS variable for background */
+  color: var(--chart-text-color); /* Use CSS variable for text */
+}
+
+.viz-container::before {
+  content: "Carregando visualizações...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #666;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.viz-container.loaded::before {
+  display: none;
+}
+
+/* Estilos para os containers de gráficos */
+.chart-container {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 30px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background-color: var(--chart-bg-color); /* Use CSS variable for background */
+  color: var(--chart-text-color); /* Use CSS variable for text */
+}
+
+.chart-container::before {
+  content: "Carregando...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #666;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.chart-container.loading::before {
+  content: "Carregando gráfico...";
+  opacity: 1;
+}
+
+.chart-container.loaded::before {
+  display: none;
+}
+
+/* Responsividade para os gráficos */
+@media screen and (min-width: 768px) {
+  .chart-container {
+    width: 31%;
+    margin-right: 2%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .chart-container:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+
+/* Garantir que os containers dentro de .chart-section usem a grid */
+.chart-section .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.chart-section .col-md-4 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 768px) {
+  .chart-section .col-md-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+}
+
+/* Seção de gráficos */
+.chart-section {
+  background-color: #f0f0f5;
+  padding: 20px 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+/* Grid responsivo para os gráficos */
+@media (min-width: 768px) {
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: var(--footer-bg) !important;
+  color: var(--footer-text) !important;
+}
+
+footer a {
+  color: var(--link-color) !important;
+}
+
+/* Drop-down lists and menus */
+.br-list {
+  background-color: var(--dialog-bg) !important;
+  color: var(--dialog-text) !important;
+  border-color: var(--border-color) !important;
+}
+
+.br-list .header {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.br-item {
+  color: var(--text-color) !important;
+}
+
+.br-menu {
+  background-color: var(--navbar-bg) !important;
+}
+
+.menu-panel {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.menu-header, .menu-body, .menu-footer {
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+}
+
+.menu-item {
+  color: var(--text-color) !important;
+}
+
+/* Checkboxes and radio buttons */
+.form-check-input:checked {
+  background-color: var(--highlight-color) !important;
+  border-color: var(--highlight-color) !important;
+}
+
+/* Dividers */
+.br-divider {
+  border-color: var(--border-color) !important;
+}
+
+/* Theme transition for all elements */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Theme transition */
+.theme-transition {
+  transition: all 0.3s ease;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --link-color: #60a5fa;
+}
+
+/* Tooltip style (ensure it's readable) */
+.tooltip {
+  position: absolute;
+  padding: 8px;
+  background: rgba(240, 240, 240, 0.9); /* Light background */
+  color: #333; /* Dark text */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  pointer-events: none; /* Important */
+  font-size: 12px;
+}
+
+/* Chart container overrides */
+.p-3.border.bg-white.rounded:has(.viz-container) {
+  padding: 1px !important; 
+}
+
+/* Headers within chart containers */
+.p-3.border.bg-white.rounded:has(.viz-container) h6 {
+  margin-top: 8px;
+}
+
+/* Estilo para tooltips */
+.tooltip-content {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  max-width: 300px;
+}
+
+/* Remover overlay escuro dos highlights de hover do Plotly */
+.js-plotly-plot .hoverlayer path,
+.js-plotly-plot .hoverlayer rect {
+  fill: none !important;
+}

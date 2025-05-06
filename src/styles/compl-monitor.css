@@ -1,0 +1,129 @@
+.compl-visualization-monitor {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px;
+  max-height: 500px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.monitor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.monitor-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.monitor-content {
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.current-status {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-details-btn {
+  width: 100%;
+  padding: 8px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.metrics-details {
+  margin-top: 15px;
+}
+
+.metrics-details h4 {
+  margin: 15px 0 8px;
+  font-size: 14px;
+}
+
+.metrics-details table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.metrics-details table th,
+.metrics-details table td {
+  padding: 6px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+}
+
+.update-history {
+  margin-top: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 12px;
+}
+
+.compl-monitor-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #4a86e8;
+  color: white;
+  font-size: 18px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.status-good {
+  color: #4caf50;
+}
+
+.status-medium {
+  color: #ff9800;
+}
+
+.status-slow {
+  color: #f44336;
+}
+
+.no-data {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+}

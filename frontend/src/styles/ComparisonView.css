@@ -1,0 +1,47 @@
+.comparison-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.comparison-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.comparison-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.comparison-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.comparison-divider {
+  margin: 8px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.comparison-content {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+@media (max-width: 768px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}

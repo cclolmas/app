@@ -1,0 +1,48 @@
+{
+  "radar_cl": [
+    { "config": "Phi-4 Q4", "ICL": 3.5, "ECL": 4.2, "GCL": 7.8 },
+    { "config": "Phi-4 Q8", "ICL": 2.8, "ECL": 3.5, "GCL": 5.2 }
+  ],
+  "histogram_overload": [
+    { "expertise": "Iniciante", "Q4_overload": 75, "Q8_overload": 55 },
+    { "expertise": "Intermediário", "Q4_overload": 63, "Q8_overload": 42 },
+    { "expertise": "Avançado", "Q4_overload": 48, "Q8_overload": 30 }
+  ],
+  "bar_resources": [
+    { "task": "Geração", "Q4_VRAM": 1.2, "Q8_VRAM": 2.4 },
+    { "task": "Debug", "Q4_VRAM": 1.0, "Q8_VRAM": 2.1 },
+    { "task": "Refatoração", "Q4_VRAM": 1.4, "Q8_VRAM": 2.6 }
+  ],
+  "sankey_flow": {
+    "nodes": [
+      { "id": "Modelo" },
+      { "id": "Quantização" },
+      { "id": "Tarefa" }
+    ],
+    "links": [
+      { "source": "Modelo", "target": "Quantização", "value": 5 },
+      { "source": "Quantização", "target": "Tarefa", "value": 5 }
+    ]
+  },
+  "violin_cl_compl": [
+    { "expertise": "Iniciante", "CompL": 5.2 },
+    { "expertise": "Iniciante", "CompL": 6.3 },
+    { "expertise": "Iniciante", "CompL": 5.8 },
+    { "expertise": "Avançado", "CompL": 3.2 },
+    { "expertise": "Avançado", "CompL": 2.8 },
+    { "expertise": "Avançado", "CompL": 3.5 }
+  ],
+  "kde_cl_compl": [
+    { "CL": 5.2, "CompL": 3.8 },
+    { "CL": 4.3, "CompL": 2.9 },
+    { "CL": 6.1, "CompL": 4.2 },
+    { "CL": 3.8, "CompL": 2.5 },
+    { "CL": 7.2, "CompL": 5.1 }
+  ],
+  "bars_with_curve_precision_compl": [
+    { "model": "phi4", "quantization": "Q4", "CompL_VRAM": 1.2, "Precision": 82 },
+    { "model": "phi4", "quantization": "Q8", "CompL_VRAM": 2.1, "Precision": 88 },
+    { "model": "mistral", "quantization": "Q4", "CompL_VRAM": 3.5, "Precision": 85 },
+    { "model": "mistral", "quantization": "Q8", "CompL_VRAM": 6.5, "Precision": 92 }
+  ]
+}

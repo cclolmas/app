@@ -1,0 +1,8 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- ...existing svg content... -->
+
+  <!-- Adiciona o texto "CrossDebate" na base -->
+  <text x="50%" y="95%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#333">
+    CrossDebate
+  </text>
+</svg>

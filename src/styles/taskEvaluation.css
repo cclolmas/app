@@ -1,0 +1,143 @@
+.task-evaluation-form {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.evaluation-intro {
+  color: #6c757d;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.criteria-section {
+  margin-bottom: 30px;
+}
+
+.criteria-item {
+  border-bottom: 1px solid #e9ecef;
+  padding: 16px 0;
+}
+
+.criteria-item label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.rating-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  max-width: 300px;
+}
+
+.rating-option {
+  text-align: center;
+}
+
+.rating-option input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.rating-option label {
+  display: block;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rating-option input[type="radio"]:checked + label {
+  background-color: #0d6efd;
+  color: white;
+  border-color: #0d6efd;
+}
+
+.rating-label {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.overall-rating {
+  margin-bottom: 25px;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+
+.slider-container input[type="range"] {
+  flex: 1;
+}
+
+.slider-value {
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+.time-spent {
+  margin-bottom: 20px;
+}
+
+.time-spent input {
+  padding: 8px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  width: 100px;
+}
+
+.qualitative-feedback textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.form-actions {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.submit-evaluation {
+  padding: 10px 20px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.submit-evaluation:hover {
+  background-color: #0b5ed7;
+}
+
+.evaluation-submitted {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #d4edda;
+  border-radius: 8px;
+  color: #155724;
+}

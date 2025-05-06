@@ -1,0 +1,242 @@
+.agent-monitor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.agent-monitor-header h2 {
+    margin: 0;
+    font-size: 1.4em;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.connection-status {
+    font-weight: bold;
+    color: #dc3545;
+    padding: 5px 10px;
+    border-radius: 3px;
+    background-color: #f8d7da;
+}
+
+.connection-status.connected {
+    color: #28a745;
+    background-color: #d4edda;
+}
+
+/* Container principal dos agentes */
+.agent-monitor-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+/* Modo lista */
+.agent-monitor-container.mode-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cartão do agente */
+.agent-card {
+    position: relative;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.agent-card.updated {
+    background-color: rgba(255, 255, 0, 0.1);
+}
+
+/* Estilos para modo lista */
+.agent-card.mode-list {
+    display: grid;
+    grid-template-columns: 150px 100px 150px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+}
+
+.agent-card.mode-list .agent-title {
+    margin: 0;
+    font-size: 1em;
+}
+
+.agent-card.mode-list .agent-info {
+    max-height: none;
+    overflow: visible;
+}
+
+/* Estilos para modo diagrama */
+.agent-card.mode-diagram {
+    padding-bottom: 30px;
+}
+
+.agent-title {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.agent-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.status-active { background-color: #d4edda; color: #155724; }
+.status-processing { background-color: #fff3cd; color: #856404; }
+.status-idle { background-color: #d1ecf1; color: #0c5460; }
+.status-error { background-color: #f8d7da; color: #721c24; }
+.status-completed { background-color: #e2d9f3; color: #4b2e83; }
+
+.agent-time {
+    font-size: 0.8em;
+    color: #666;
+    margin: 5px 0;
+}
+
+.agent-info {
+    margin-top: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.agent-info dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5px;
+}
+
+.agent-info dt {
+    font-weight: bold;
+    color: #555;
+}
+
+.agent-info dd {
+    margin: 0;
+    color: #333;
+    overflow-wrap: break-word;
+}
+
+.history-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+.history-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Diagrama de estados */
+.state-diagram {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+/* Modal de histórico */
+.agent-history-modal {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 1000px;
+    max-height: 80vh;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.history-header h3 {
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #333;
+}
+
+.history-content {
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th, .history-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.history-table th {
+    background-color: #f5f5f5;
+    position: sticky;
+    top: 0;
+}
+
+.history-table pre {
+    margin: 0;
+    white-space: pre-wrap;
+    font-size: 0.9em;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .agent-monitor-container {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+    
+    .agent-card.mode-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .agent-history-modal {
+        width: 95%;
+        top: 20px;
+    }
+}

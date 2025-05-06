@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teste de Gráficos</title>
+  <!-- carrega Chart.js e nosso utils -->
+  <link rel="stylesheet" href="https://cdn.example.gov.br/design-system.css" />
+  <script src="https://cdn.example.gov.br/design-system.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+  <script src="js/chart-utils.js" defer></script>
+</head>
+<body>
+  <h1>Teste de Gráficos</h1>
+  <div id="test-chart" style="width:600px; height:400px;"></div>
+
+  <script defer>
+    (async () => { // Use an IIFE (Immediately Invoked Function Expression)
+      const data = {
+        labels: ['Janeiro','Fevereiro','Março','Abril'],
+        datasets: [{
+          label: 'Vendas',
+          data: [65, 59, 80, 81],
+          backgroundColor: ['#1351B4','#2670E8','#3F9BF7','#168821']
+        }]
+      };
+      const options = {
+        plugins: {
+          title: { display: true, text: 'Gráfico de Vendas Mensais' }
+        }
+      };
+      // renderiza gráfico de barras no div#test-chart
+      // Ensure ChartUtils is available before calling it
+      if (window.ChartUtils) {
+        await ChartUtils.createChart('bar', 'test-chart', data, options);
+      } else {
+        console.error("ChartUtils não está definido. Verifique o carregamento do script.");
+      }
+    })();
+  </script>
+</body>
+</html>

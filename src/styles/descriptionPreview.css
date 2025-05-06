@@ -1,0 +1,48 @@
+.description-preview {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  background-color: #f9f9f9;
+}
+
+.preview-content {
+  background-color: white;
+  padding: 16px;
+  border-radius: 4px;
+  min-height: 100px;
+  margin-bottom: 16px;
+}
+
+.placeholder-text {
+  color: #999;
+  font-style: italic;
+}
+
+.clarity-feedback {
+  padding: 12px;
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+.clarity-feedback.valid {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-left: 3px solid #4caf50;
+}
+
+.clarity-feedback.invalid {
+  background-color: rgba(255, 152, 0, 0.1);
+  border-left: 3px solid #ff9800;
+}
+
+.suggestions {
+  margin-top: 12px;
+}
+
+.suggestions ul {
+  padding-left: 20px;
+}
+
+.suggestions li {
+  margin-bottom: 8px;
+}

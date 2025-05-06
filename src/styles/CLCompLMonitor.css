@@ -1,0 +1,83 @@
+.cl-compl-monitor {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin: 20px 0;
+  padding: 15px;
+}
+
+.current-metrics {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.metric-display {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  width: 48%;
+}
+
+.parameter-controls {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 15px;
+  width: 48%;
+}
+
+.metric-values {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.metric {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.metric span {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.metric strong {
+  font-size: 1.4rem;
+}
+
+.slider-control {
+  margin: 15px 0;
+}
+
+.slider-control label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.slider-control input {
+  width: 100%;
+}
+
+.chart-container {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  height: 300px;
+  padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .current-metrics {
+    flex-direction: column;
+  }
+  
+  .metric-display, .parameter-controls {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+}

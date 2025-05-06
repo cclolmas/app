@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Página inicial do projeto CCLOLMAS">
+  <meta name="keywords" content="CCLOLMAS, Sema, Meio Ambiente, Licenciamento">
+  <meta name="author" content="SEMA">
+  <title>CCLOLMAS - Sistema Multi-Agente Local com Orquestrador de Carga Cognitivo-Computacional</title>
+  <!-- Font Rawline-->
+  <link rel="stylesheet" href="https://cdngovbr-ds.estaleiro.serpro.gov.br/design-system/fonts/rawline/css/rawline.css">
+  <!-- Font Raleway-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap">
+  <!-- Design System GOV.BR CSS-->
+  <link rel="stylesheet" href="css/core.min.css">
+  <!-- Fontawesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Custom CSS (if needed) -->
+  <!-- <link rel="stylesheet" href="css/custom.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Font loading with proper crossorigin and fallback strategy -->
+  <!-- Add a font-display swap style to handle loading failures gracefully -->
+  <style>
+    @font-face {
+      font-family: 'YourFont';
+      src: url('fonts/YourFont.woff2') format('woff2'),
+           url('fonts/YourFont.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap; /* Use fallback while loading, swap when ready */
+    }
+    
+    /* Fallback font class */
+    .use-fallback-fonts {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="br-header compact">
+    <div class="container-lg">
+      <div class="header-top">
+        <div class="header-logo">
+          <img src="assets/govbr-logo.png" alt="logo govbr">
+          <span class="br-divider vertical mx-half mx-sm-1"></span>
+          <div class="header-sign">Ministério da Gestão e da Inovação</div>
+        </div>
+        <div class="header-actions">
+          <div class="header-links dropdown">
+            <button class="br-button circle small" type="button" data-toggle="dropdown" aria-label="Abrir Acesso Rápido">
+              <i class="fas fa-ellipsis-v" aria-hidden="true"></i>
+            </button>
+            <div class="br-list">
+              <div class="header">
+                <div class="title">Acesso Rápido</div>
+              </div>
+              <a class="br-item" href="javascript:void(0)">Documentação</a>
+              <a class="br-item" href="javascript:void(0)">Sobre o Design Experimental</a>
+              <a class="br-item" href="javascript:void(0)">Acessibilidade</a>
+              <button id="theme-toggle" aria-label="Alternar modo claro/escuro"
+                      style="background:none;border:none;cursor:pointer;font-size:1.2em;margin-left:0.5rem;">
+                🌙
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-bottom">
+        <div class="header-menu">
+          <div class="header-menu-trigger">
+            <button class="br-button small circle" type="button" aria-label="Menu" data-toggle="menu" data-target="#main-navigation" id="menu-compact">
+              <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="header-info">
+            <div class="header-title">CCLOLMAS</div>
+            <div class="header-subtitle">Inteligência Artificial em Engenharia de Software</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <div class="br-menu" id="main-navigation">
+    <div class="menu-container">
+      <div class="menu-panel">
+        <div class="menu-header">
+          <div class="menu-title">
+            <span>CCLO</span>
+          </div>
+          <div class="menu-close">
+            <button class="br-button circle" type="button" aria-label="Fechar o menu" data-dismiss="menu">
+              <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+        <nav class="menu-body">
+          <a class="menu-item" href="#config-interacao">
+            <span class="content">Configurações</span>
+          </a>
+          <a class="menu-item" href="#simulador-qlora">
+            <span class="content">Ajuste Fino</span>
+          </a>
+          <a class="menu-item" href="#documentacao">
+            <span class="content">Documentação</span>
+          </a>
+        </nav>
+        <div class="menu-footer">
+          <div class="menu-links">
+            <a href="javascript: void(0)">
+              <span class="mr-1">Órgãos do Governo</span>
+              <i class="fas fa-external-link-square-alt" aria-hidden="true"></i>
+            </a>
+            <a href="javascript: void(0)">
+              <span class="mr-1">Acesso à Informação</span>
+              <i class="fas fa-external-link-square-alt" aria-hidden="true"></i>
+            </a>
+            <a href="javascript: void(0)">
+              <span class="mr-1">Legislação</span>
+              <i class="fas fa-external-link-square-alt" aria-hidden="true"></i>
+            </a>
+            <a href="javascript: void(0)">
+              <span class="mr-1">Acessibilidade</span>
+              <i class="fas fa-external-link-square-alt" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-scrim" data-dismiss="menu" tabindex="0"></div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container-lg mt-3">
+    <main>
+      <!-- Page Title -->
+      <h2 class="header-title">Sistema Multi-Agente Local com Orquestrador de Carga Cognitivo-Computacional</h2>
+
+      <div class="row mt-5 mb-3">
+        <div class="col-md-12">
+          <div class="d-flex flex-wrap justify-content-between gap-2">
+            <button class="br-button primary" type="button" id="global-btn-clear-config" data-testid="clear-config-btn" aria-label="Limpar todas as configurações">
+              <i class="fas fa-eraser mr-1" aria-hidden="true"></i>
+              Limpar Configurações
+            </button>
+            <button class="br-button primary" type="button" id="global-btn-export-json" data-testid="export-json-btn" aria-label="Exportar configuração atual como arquivo JSON">
+              <i class="fas fa-file-export mr-1" aria-hidden="true"></i>
+              Exportar Cenário (JSON)
+            </button>
+            <button class="br-button primary" type="button" id="global-btn-save-evaluation" data-testid="save-eval-btn" aria-label="Salvar resultado da avaliação atual">
+              <i class="fas fa-save mr-1" aria-hidden="true"></i>
+              Salvar Avaliação
+            </button>
+            <button class="br-button secondary" type="button" id="global-btn-optimize-params" data-testid="optimize-params-btn" aria-label="Otimizar automaticamente os parâmetros">
+              <i class="fas fa-magic mr-1" aria-hidden="true"></i>
+              Otimizar Parâmetros
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloco 1: Configuração e Interação -->
+      <div class="d-flex align-items-center mt-5">
+        <strong class="mr-2">Configuração do Cenário e Interação</strong>
+        <button class="br-button circle small" type="button" data-toggle="collapse" data-target="#config-interacao" aria-expanded="true" aria-controls="config-interacao" aria-label="Abrir/fechar bloco Configuração do Cenário e Interação">
+          <i class="fas fa-angle-down" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="collapse show" id="config-interacao">
+        <div class="bg-gray-2 px-2 py-3 p-md-6 mt-1 mb-6">
+          <!-- Linha 1: Seletores -->
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <div class="br-select">
+                <div class="br-input">
+                  <label for="select-modelo">Modelo LLM</label>
+                  <input id="select-modelo" type="text" placeholder="Selecione o Modelo"/>
+                  <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger><i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="br-list" tabindex="0">
+                  <div class="br-item" tabindex="-1">
+                    <div class="br-radio">
+                      <input id="phi4" name="modelo" type="radio" value="phi4"/>
+                      <label for="phi4">Phi-4-mini</label>
+                    </div>
+                  </div>
+                  <div class="br-item" tabindex="-1">
+                    <div class="br-radio">
+                      <input id="mistral" name="modelo" type="radio" value="mistral"/>
+                      <label for="mistral">Mistral-7B</label>
+                    </div>
+                  </div>
+                   <div class="br-item" tabindex="-1">
+                    <div class="br-radio">
+                      <input id="llama" name="modelo" type="radio" value="llama"/>
+                      <label for="llama">Llama-3-8B</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="br-input mt-3">
+                <label for="vram-estimada">VRAM Estimada (GB):</label>
+                <input id="vram-estimada" type="text" placeholder="--" readonly/>
+              </div>
+            </div>
+            
+            <div class="col-md-3 mb-3">
+              <div class="br-select">
+                <div class="br-input">
+                  <label for="select-quantizacao">Nível Expertise</label>
+                  <input id="select-quantizacao" type="text" placeholder="Selecione o Nível"/>
+                  <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger><i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </button>
+                   <button class="br-button circle small ml-1" type="button" data-tooltip-text="Iniciante: Maior CL inicial. Avançado: Menor CL inicial, mas pode subestimar complexidade (efeito Dunning-Kruger)." aria-label="Info Expertise"><i class="fas fa-info-circle" aria-hidden="true"></i></button>
+                </div>
+                <div class="br-list" tabindex="0">
+                  <div class="br-item" tabindex="-1">
+                    <div class="br-radio">
+                      <input id="exp-ini2" name="quantizacao" type="radio" value="iniciante"/>
+                      <label for="exp-ini2">Iniciante</label>
+                    </div>
+                  </div>
+                  <div class="br-item" tabindex="-1">
+                    <div class="br-radio">
+                      <input id="exp-ava2" name="quantizacao" type="radio" value="avancado"/>
+                      <label for="exp-ava2">Avançado</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="br-input mt-3">
+                <label for="latencia-estimada">Latência Estimada (s):</label>
+                <input id="latencia-estimada" type="text" placeholder="--" readonly/>
+              </div>
+            </div>
+            
+            <div class="col-md-6 mb-3">
+              <p class="label mb-0">Tarefa</p>
+              <div class="row" style="max-height: 250px; overflow-y: auto; padding-right: 5px;">
+                <div class="col-4 pr-2">
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-gen" name="tarefa" type="radio" value="geracao" checked/>
+                    <label for="tarefa-gen">Geração Código</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-debug" name="tarefa" type="radio" value="debug"/>
+                    <label for="tarefa-debug">Debug</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-refactor" name="tarefa" type="radio" value="refactor"/>
+                    <label for="tarefa-refactor">Refatoração</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-qa" name="tarefa" type="radio" value="qa"/>
+                    <label for="tarefa-qa">Análise QA</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-test" name="tarefa" type="radio" value="test"/>
+                    <label for="tarefa-test">Testes</label>
+                  </div>
+                  <div class="br-radio">
+                    <input id="tarefa-doc" name="tarefa" type="radio" value="doc"/>
+                    <label for="tarefa-doc">Documentação</label>
+                  </div>
+                </div>
+                <div class="col-4 px-2">
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-opt" name="tarefa" type="radio" value="opt"/>
+                    <label for="tarefa-opt">Otimização</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-sec" name="tarefa" type="radio" value="security"/>
+                    <label for="tarefa-sec">Segurança</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-int" name="tarefa" type="radio" value="integrate"/>
+                    <label for="tarefa-int">APIs</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-ui" name="tarefa" type="radio" value="ui"/>
+                    <label for="tarefa-ui">UI/UX</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-data" name="tarefa" type="radio" value="dataproc"/>
+                    <label for="tarefa-data">Mocks</label>
+                  </div>
+                  <div class="br-radio">
+                    <input id="tarefa-db" name="tarefa" type="radio" value="database"/>
+                    <label for="tarefa-db">Banco Dados</label>
+                  </div>
+                </div>
+                <div class="col-4 pl-2">
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-deploy" name="tarefa" type="radio" value="deploy"/>
+                    <label for="tarefa-deploy">FMOps</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-build" name="tarefa" type="radio" value="build"/>
+                    <label for="tarefa-build">Build</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-shell" name="tarefa" type="radio" value="shell"/>
+                    <label for="tarefa-shell">Shell</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-batch" name="tarefa" type="radio" value="batch"/>
+                    <label for="tarefa-batch">Batchfile</label>
+                  </div>
+                  <div class="br-radio mb-2">
+                    <input id="tarefa-typcss" name="tarefa" type="radio" value="typcss"/>
+                    <label for="tarefa-typcss">TS/CSS</label>
+                  </div>
+                  <div class="br-radio">
+                    <input id="tarefa-comp" name="tarefa" type="radio" value="compat"/>
+                    <label for="tarefa-comp">Compatib.</label>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-3 d-flex align-items-end">
+                <div class="br-message warning w-100 d-none" role="alert" id="instability-warning">
+                    <div class="icon"><i class="fas fa-exclamation-triangle fa-lg" aria-hidden="true"></i></div>
+                    <div class="content"><span class="message-body">Quantização Q4 pode gerar resultados instáveis ou de menor qualidade.</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Linha 2: Interação -->
+          <div class="row mt-4">
+            <div class="col-md-3 mb-3">
+              <div class="br-textarea">
+                <label for="prompt-input">Seu Prompt:</label>
+                <textarea id="prompt-input" placeholder="Digite seu prompt aqui..." style="height: 250px;"></textarea>
+              </div>
+              <button class="br-button primary mt-2" type="button" id="send-prompt-btn">Enviar Prompt</button>
+            </div>
+            <div class="col-md-9 mb-3">
+              <label>Resposta do Modelo:</label>
+              <div id="model-output" class="bg-white p-3 border rounded" style="min-height: 300px; white-space: pre-wrap; word-wrap: break-word;">
+                <pre><code>A resposta do modelo aparecerá aqui...</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloco Visualizações Centrais -->
+      <div class="d-flex align-items-center mt-5">
+        <strong class="mr-2">Visualizações CL-CompL</strong>
+        <button class="br-button circle small" type="button" data-toggle="collapse" data-target="#visualizacoes-cl-compl" aria-expanded="true" aria-controls="visualizacoes-cl-compl" aria-label="Abrir/fechar bloco Visualizações CL-CompL">
+          <i class="fas fa-angle-down" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="collapse show" id="visualizacoes-cl-compl">
+        <div class="bg-gray-2 px-2 py-3 p-md-6 mt-1 mb-6">
+          <div class="text-center mb-4">Visualizações interativas sobre Carga Cognitiva (CL) e Carga Computacional (CompL).</div>
+          <!-- Linha 1 Gráficos -->
+          <div class="row justify-content-center mb-4">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <div class="p-3 border bg-white">
+                <h6 class="text-center">Dimensões CL (Radar)</h6>
+                <div id="graph-radar-cl" style="width: 100%; height: 240px;"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border bg-white">
+                <h6 class="text-center">Sobrecarga Cognitiva vs Expertise (Histograma)</h6>
+                <div id="graph-histogram-overload" style="width: 100%; height: 240px;"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Linha 2 Gráficos -->
+          <div class="row justify-content-center mb-4">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <div class="p-3 border bg-white">
+                <h6 class="text-center">Uso de Recursos vs Tarefa</h6>
+                <div id="graph-bar-resources" style="width: 100%; height: 240px;"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border bg-white">
+                <h6 class="text-center">Fluxo de Recursos (Sankey)</h6>
+                <div id="graph-sankey-flow" style="width: 100%; height: 240px;"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Linha 3 Gráficos -->
+          <div class="row justify-content-center">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <div class="p-3 border bg-white">
+                <h6 class="text-center">CL vs CompL por Expertise (Violino)</h6>
+                <div id="graph-violin-cl-compl" style="width: 100%; height: 240px;"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border bg-white">
+                <h6 class="text-center">Densidade CL-CompL (KDE)</h6>
+                <div id="graph-kde-cl-compl" style="width: 100%; height: 240px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloco 3: QLoRA -->
+      <div class="d-flex align-items-center mt-5">
+      </div>
+      <div class="collapse" id="simulador-qlora">
+        <div class="bg-gray-2 px-2 py-3 p-md-6 mt-1 mb-6">
+          <!-- Linha 1: Parâmetros QLoRA -->
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <div class="br-select">
+                <div class="br-input">
+                  <label for="select-dataset">Dataset</label>
+                  <input id="select-dataset" type="text" placeholder="Selecione o Dataset"/>
+                  <button class="br-button" type="button" aria-label="Exibir lista" tabindex="-1" data-trigger><i class="fas fa-angle-down" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="br-list" tabindex="0">
+                  <div class="br-item" tabindex="-1">
+                    <div class="br-radio">
+                      <input id="ds-codesum" name="dataset" type="radio" value="codesum"/>
+                      <label for="ds-codesum">CodeSum</label>
+                    </div>
+                  </div>
+                  <div class="br-item" tabindex="-1">
+                    <div class="br-radio">
+                      <input id="ds-commit" name="dataset" type="radio" value="commitclassify"/>
+                      <label for="ds-commit">CommitClassify</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="br-input">
+                <label for="lora-rank">LoRA Rank</label>
+                <input id="lora-rank" type="number" placeholder="Ex: 8" value="8"/>
+                <button class="br-button circle small ml-1" type="button" data-tooltip-text="Complexidade do ajuste. Maior rank = mais VRAM/CompL, potencial melhor ajuste, maior CL para entender." aria-label="Info LoRA Rank"><i class="fas fa-info-circle" aria-hidden="true"></i></button>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="br-input">
+                <label for="learning-rate">Learning Rate</label>
+                <input id="learning-rate" type="number" step="any" placeholder="Ex: 2e-4" value="0.0002"/>
+                 <button class="br-button circle small ml-1" type="button" data-tooltip-text="Velocidade de aprendizado. Afeta tempo/CompL e qualidade/CL." aria-label="Info Learning Rate"><i class="fas fa-info-circle" aria-hidden="true"></i></button>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="br-input">
+                <label for="batch-size">Batch Size</label>
+                <input id="batch-size" type="number" placeholder="Ex: 1" value="1"/>
+                 <button class="br-button circle small ml-1" type="button" data-tooltip-text="Dados processados por vez. Maior batch = mais VRAM/CompL, pode acelerar, afeta CL na análise." aria-label="Info Batch Size"><i class="fas fa-info-circle" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+          <!-- Linha 2: Ação -->
+          <div class="row mt-4">
+            <div class="col-12">
+              <button class="br-button primary" type="button" id="simulate-qlora-btn">Ajuste Fino</button>
+            </div>
+          </div>
+          <!-- Linha 3: Resultados -->
+          <div class="row mt-4">
+            <div class="col-12">
+              <h5 class="mb-3">Resultados da Avaliação QLoRA</h5>
+              <div class="br-table" data-search="false" data-pagination="false">
+                 <div class="table-header"></div>
+                 <table>
+                    <caption>Resultados QLoRA</caption>
+                    <thead>
+                        <tr>
+                        <th scope="col">Configuração</th>
+                        <th scope="col">VRAM Estimada (CompL)</th>
+                        <th scope="col">Tempo Estimado (CompL)</th>
+                        <th scope="col">Acurácia/Perda (Perf.)</th>
+                        <th scope="col">Estabilidade/CL Estimada</th>
+                        <th scope="col">Avaliação Trade-off</th>
+                        </tr>
+                    </thead>
+                    <tbody id="qlora-results-table-body">
+                        <tr>
+                        <td data-th="Configuração">Rank 8, LR 2e-4, BS 1</td>
+                        <td data-th="VRAM Estimada (CompL)">Média</td>
+                        <td data-th="Tempo Estimado (CompL)">Longo</td>
+                        <td data-th="Acurácia/Perda (Perf.)">Boa</td>
+                        <td data-th="Estabilidade/CL Estimada">Médio</td>
+                        <td data-th="Avaliação Trade-off">Equilibrado, mas demorado.</td>
+                        </tr>
+                        <!-- Outras linhas de resultados aqui -->
+                    </tbody>
+                 </table>
+              </div>
+              <div class="br-message success mt-3 d-none" role="alert" id="qlora-summary">
+                 <div class="icon"><i class="fas fa-check-circle fa-lg" aria-hidden="true"></i></div>
+                 <div class="content"><span class="message-body">Melhor trade-off encontrado: [Configuração X] oferece bom desempenho com CompL/CL gerenciáveis.</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- Scatter Plot: Precisão vs CompL -->
+          <div class="row mt-4 justify-content-center">
+              <div class="col-md-8">
+                  <div class="p-3 border bg-white">
+                      <h6 class="text-center">Precisão vs CompL (Scatter Plot)</h6>
+                      <div id="graph-scatter-precision-compl" style="width: 100%; height: 240px;"></div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Adiciona footer básico -->
+  <footer class="bg-light text-center text-lg-start mt-5">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      Cognitive-Computational Load Orchestrator for Local Multi-Agent System © 2025 INEP:
+      <a class="text-dark" href="https://www.gov.br/inep/pt-br/composicao/diretoria-de-avaliacao-da-educacao-superior">Diretoria de Avaliação da Educação Superior - DAES</a>
+    </div>
+  </footer>
+
+  <!-- Scripts de componentes -->
+  <!-- Plotly library via CDN deve ser carregado primeiro para estar disponível para scripts.js -->
+  <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+  <!-- GOV.BR Design System -->
+  <script src="js/core.min.js"></script>
+  <!-- Inicialização de componentes -->
+  <script src="js/initialize-core.js"></script>
+  <!-- Arquivos para visualizações -->
+  <script src="js/data-mocks.js"></script>
+  <script src="js/chart-utils.js"></script>
+  <script src="js/visualizations.js"></script>
+  <script src="js/scripts.js"></script>
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+

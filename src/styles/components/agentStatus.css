@@ -1,0 +1,132 @@
+.agent-status-indicator {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+.status-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-errors {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.status-warnings {
+  background-color: rgba(255, 165, 0, 0.1);
+  border-radius: 4px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.agent-status-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  color: #666;
+}
+
+/* Estilos para a página de diagnóstico */
+.agent-diagnostics-page {
+  padding: 20px;
+}
+
+.agent-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.agent-item {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.agent-item:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.agent-item.active {
+  border: 2px solid #4a90e2;
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.logs-container {
+  margin-top: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: auto;
+  max-height: 300px;
+}
+
+.logs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.logs-table th,
+.logs-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.log-info {
+  background-color: rgba(0, 128, 0, 0.05);
+}
+
+.log-warn {
+  background-color: rgba(255, 165, 0, 0.1);
+}
+
+.log-error {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.action-buttons {
+  margin: 20px 0;
+}
+
+.primary-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primary-button:hover {
+  background-color: #357ab8;
+}
+
+.graph-placeholder {
+  height: 300px;
+  border: 1px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: #666;
+}

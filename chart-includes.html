@@ -1,0 +1,66 @@
+<!-- Include this in your HTML files before the closing </body> tag -->
+<script>
+  // Load chart utilities
+  function loadScript(src, callback) {
+    const script = document.createElement('script');
+    script.src = src;
+    script.onload = callback;
+    document.head.appendChild(script);
+  }
+  
+  // Load CSS
+  const chartCss = document.createElement('link');
+  chartCss.rel = 'stylesheet';
+  chartCss.href = '/css/chart-reset.css';
+  document.head.appendChild(chartCss);
+  
+  // Load utilities in order
+  loadScript('/js/dom-checker.js', function() {
+    loadScript('/js/chart-container-manager.js', function() {
+      // After all utilities are loaded, check for chart initialization
+      if (typeof initializeCharts === 'function') {
+        initializeCharts();
+      }
+      
+      // Add debug button (hidden by default)
+      const debugBtn = document.createElement('button');
+      debugBtn.textContent = 'Debug Charts';
+      debugBtn.style.position = 'fixed';
+      debugBtn.style.bottom = '10px';
+      debugBtn.style.right = '10px';
+      debugBtn.style.zIndex = '9999';
+      debugBtn.style.padding = '5px 10px';
+      debugBtn.style.background = '#3498db';
+      debugBtn.style.color = 'white';
+      debugBtn.style.border = 'none';
+      debugBtn.style.borderRadius = '4px';
+      debugBtn.style.cursor = 'pointer';
+      debugBtn.style.display = 'none';
+      
+      debugBtn.addEventListener('click', function() {
+        // Load debug tool if needed
+        if (!window.ChartDebugTool) {
+          loadScript('/js/chart-debug-tool.js', function() {
+            ChartDebugTool.runDiagnostics();
+          });
+        } else {
+          ChartDebugTool.runDiagnostics();
+        }
+      });
+      
+      document.body.appendChild(debugBtn);
+      
+      // Show debug button if URL has debug parameter
+      if (window.location.search.includes('debug')) {
+        debugBtn.style.display = 'block';
+      }
+      
+      // Add keyboard shortcut (Ctrl+Shift+C)
+      document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+          debugBtn.click();
+        }
+      });
+    });
+  });
+</script>

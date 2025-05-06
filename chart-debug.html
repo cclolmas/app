@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Depuração de Gráficos - CCLOLMAS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .tip {
+            border-left: 4px solid #3498db;
+            padding: 10px;
+            background-color: #ebf5fb;
+            margin: 15px 0;
+        }
+        .warning {
+            border-left: 4px solid #e74c3c;
+            padding: 10px;
+            background-color: #fadbd8;
+            margin: 15px 0;
+        }
+        .keyboard {
+            display: inline-block;
+            padding: 3px 5px;
+            background: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+            margin: 0 2px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Guia de Depuração de Gráficos - CCLOLMAS</h1>
+        
+        <p>Este guia ajudará você a diagnosticar e resolver problemas de visualização de gráficos na plataforma CCLOLMAS.</p>
+        
+        <h2>Atalhos Úteis</h2>
+        
+        <table>
+            <tr>
+                <th>Atalho</th>
+                <th>Função</th>
+            </tr>
+            <tr>
+                <td><span class="keyboard">Ctrl</span> + <span class="keyboard">Shift</span> + <span class="keyboard">C</span></td>
+                <td>Abrir painel de depuração de gráficos</td>
+            </tr>
+            <tr>
+                <td><span class="keyboard">Ctrl</span> + <span class="keyboard">Alt</span> + <span class="keyboard">D</span></td>
+                <td>Mostrar diagnóstico de carregamento de dados</td>
+            </tr>
+        </table>
+        
+        <h2>Parâmetros de URL</h2>
+        
+        <p>Adicione os seguintes parâmetros à URL para ativar recursos de depuração:</p>
+        
+        <table>
+            <tr>
+                <th>Parâmetro</th>
+                <th>Função</th>
+            </tr>
+            <tr>
+                <td><code>?debug-charts</code></td>
+                <td>Ativar modo de depuração detalhada dos gráficos</td>
+            </tr>
+            <tr>
+                <td><code>?diagnose-charts</code></td>
+                <td>Mostrar automaticamente o painel de diagnóstico</td>
+            </tr>
+        </table>
+        
+        <h2>Problemas Comuns e Soluções</h2>
+        
+        <h3>1. Gráfico não aparece (container vazio)</h3>
+        
+        <div class="tip">
+            <strong>Solução:</strong> Verifique se o container existe no DOM antes de tentar renderizar o gráfico. Use o painel de depuração para verificar se os containers estão sendo criados corretamente.
+        </div>
+        
+        <h3>2. Dados não carregam (gráfico mostrando "Sem dados disponíveis")</h3>
+        
+        <div class="tip">
+            <strong>Solução:</strong> Verifique se os dados estão sendo carregados corretamente. Use o diagnóstico de carregamento de dados para identificar falhas nas chamadas de API ou erros no processamento de dados.
+        </div>
+        
+        <h3>3. Gráficos com erro de renderização</h3>
+        
+        <div class="tip">
+            <strong>Solução:</strong> Verifique se há erros no console do navegador. O painel de depuração mostrará erros específicos para cada gráfico. Problemas comuns incluem formatação incorreta de dados ou conflitos entre bibliotecas.
+        </div>
+        
+        <h2>Como Usar o Painel de Depuração</h2>
+        
+        <ol>
+            <li>Pressione <span class="keyboard">Ctrl</span> + <span class="keyboard">Shift</span> + <span class="keyboard">C</span> para abrir o painel</li>
+            <li>Verifique o status de cada gráfico (inicializado, com erro, pendente)</li>
+            <li>Para gráficos com erro, clique no botão "Corrigir" ou "Tentar Novamente"</li>
+            <li>Use o botão "Recarregar Todos" para reinicializar todos os gráficos</li>
+        </ol>
+        
+        <div class="warning">
+            <strong>Importante:</strong> Certifique-se de que todas as dependências de biblioteca (Chart.js, D3.js, etc.) estão carregadas antes de tentar renderizar os gráficos.
+        </div>
+        
+        <h2>Resolução de Problemas Específicos</h2>
+        
+        <h3>Problema: Gráfico de Barras Empilhadas não carrega</h3>
+        
+        <pre>
+// Verifique se os dados têm o formato correto:
+{
+  labels: ['Item 1', 'Item 2', ...],
+  datasets: [
+    {
+      label: 'Dataset 1',
+      data: [10, 20, ...],
+      backgroundColor: 'rgba(255, 99, 132, 0.8)',
+    },
+    // mais datasets...
+  ]
+}
+        </pre>
+        
+        <h3>Problema: Diagrama Sankey não aparece</h3>
+        
+        <pre>
+// Verifique se os dados têm o formato correto:
+{
+  nodes: [
+    { name: 'Node 1' },
+    { name: 'Node 2' },
+    // mais nós...
+  ],
+  links: [
+    { source: 0, target: 1, value: 10 },
+    // mais links...
+  ]
+}
+        </pre>
+        
+        <div class="tip">
+            <p><strong>Dica:</strong> Para casos mais complexos de depuração, adicione <code>?debug=true</code> à URL e consute o console do navegador para ver mensagens detalhadas.</p>
+        </div>
+    </div>
+</body>
+</html>

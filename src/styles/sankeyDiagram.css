@@ -1,0 +1,70 @@
+.sankey-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+.sankey-diagram {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sankey-tooltip {
+  position: absolute;
+  visibility: hidden;
+  background-color: rgba(50, 50, 50, 0.9);
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 100;
+  pointer-events: none;
+  max-width: 250px;
+}
+
+.sankey-controls {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.sankey-controls button {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.sankey-controls button:hover {
+  background-color: rgba(240, 240, 240, 0.9);
+}
+
+/* SVG styling */
+.link {
+  fill: none;
+  stroke-opacity: 0.6;
+}
+
+.link:hover {
+  stroke-opacity: 0.9;
+}
+
+.node rect {
+  fill-opacity: 0.9;
+  shape-rendering: crispEdges;
+}
+
+.node text {
+  pointer-events: none;
+  font-size: 10px;
+}

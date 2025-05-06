@@ -1,0 +1,4 @@
+chmod +x /home/sema/Documents/cclolmas/start-server.sh
+
+cd /home/sema/Documents/cclolmas
+node server.js

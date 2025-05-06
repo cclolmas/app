@@ -1,0 +1,193 @@
+.resource-visualization-dashboard {
+  font-family: 'Roboto', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f9fc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-description {
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.visualization-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+@media (min-width: 1024px) {
+  .visualization-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.chart-section,
+.diagram-section {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #444;
+  margin-top: 0;
+  font-size: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+h3 {
+  color: #555;
+  font-size: 16px;
+  margin: 0;
+}
+
+h4 {
+  color: #666;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+/* Control Panel Styles */
+.resource-control-panel {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.control-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.comparison-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.comparison-toggle label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.comparison-toggle input {
+  margin-right: 8px;
+}
+
+.control-panels-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .control-panels-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.config-panel {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+}
+
+.primary-config {
+  border-left: 4px solid #4e73df;
+}
+
+.comparison-config {
+  border-left: 4px solid #e74a3b;
+}
+
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.control-group {
+  flex: 1;
+  min-width: 120px;
+}
+
+.control-group label {
+  display: block;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.control-group select,
+.control-group input {
+  width: 100%;
+  padding: 8px;
+  font-size: 13px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+}
+
+/* Chart Controls */
+.chart-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* Preset Configuration Buttons */
+.preset-configurations {
+  margin-top: 15px;
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.preset-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.preset-buttons button {
+  padding: 8px 12px;
+  background-color: #f1f3f5;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.preset-buttons button:hover {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+}
+
+/* Dashboard Footer */
+.dashboard-footer {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin-top: 20px;
+}

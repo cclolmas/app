@@ -1,0 +1,78 @@
+/**
+ * Estilos para elementos criados pelo QA Helper
+ */
+
+/* Destaca containers criados dinamicamente */
+.dynamic-container {
+  min-height: 100px;
+  border: 2px dashed #ff7700;
+  padding: 10px;
+  margin: 10px 0;
+  position: relative;
+}
+
+.dynamic-container::before {
+  content: 'Container criado dinamicamente';
+  font-family: monospace;
+  font-size: 12px;
+  background-color: #ff7700;
+  color: white;
+  padding: 2px 6px;
+  position: absolute;
+  top: -12px;
+  left: 10px;
+}
+
+/* Estilo específico para containers de gráficos criados dinamicamente */
+.dynamic-container[id*="graph"] {
+  min-height: 300px;
+  background-color: rgba(255, 119, 0, 0.05);
+}
+
+.dynamic-container[id*="graph"]::before {
+  content: 'Container de gráfico criado dinamicamente';
+}
+
+/* Estilo para alertas de erro de QA */
+.qa-error-alert {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 10px 15px;
+  border-left: 5px solid #d32f2f;
+  margin: 10px 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Estilo para alertas de aviso de QA */
+.qa-warning-alert {
+  background-color: #fff8e1;
+  color: #ff8f00;
+  padding: 10px 15px;
+  border-left: 5px solid #ff8f00;
+  margin: 10px 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Estilo para indicador de modo de QA ativo */
+.qa-mode-indicator {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background-color: rgba(33, 33, 33, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: monospace;
+  z-index: 9999;
+}
+
+/* Estilo para indicador de função mock */
+.mock-function-call {
+  border: 1px solid #ff9800;
+  background-color: rgba(255, 152, 0, 0.1);
+  padding: 10px;
+  margin: 10px 0;
+  font-family: monospace;
+  font-size: 13px;
+}

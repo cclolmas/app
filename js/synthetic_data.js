@@ -1,0 +1,3 @@
+export default {
+  // ...paste entire content of synthetic_data.json here...
+};

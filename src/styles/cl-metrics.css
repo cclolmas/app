@@ -1,0 +1,142 @@
+.cl-metrics-container {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 24px;
+}
+
+.metrics-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.metric-card {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  min-width: 120px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.metric-trend {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.metric-trend.positive {
+  color: #28a745;
+}
+
+.metric-trend.negative {
+  color: #dc3545;
+}
+
+.metric-trend.neutral {
+  color: #6c757d;
+}
+
+.confidence-bar {
+  width: 100%;
+  height: 12px;
+  background: #e9ecef;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.confidence-level {
+  height: 100%;
+  background: linear-gradient(90deg, #17a2b8, #20c997);
+  transition: width 0.3s ease;
+}
+
+.metrics-list {
+  list-style: none;
+  padding: 0;
+}
+
+.metrics-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.metric-name {
+  font-weight: 500;
+  color: #495057;
+}
+
+.metric-scale {
+  display: flex;
+  gap: 4px;
+}
+
+.scale-point {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #e9ecef;
+}
+
+.scale-point.active {
+  background: #007bff;
+}
+
+.progress-metrics {
+  margin-top: 20px;
+}
+
+.progress-chart {
+  height: 200px;
+  position: relative;
+  border-bottom: 1px solid #dee2e6;
+  border-left: 1px solid #dee2e6;
+  margin-top: 30px;
+  padding: 20px 0;
+}
+
+.progress-point {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #007bff;
+  position: absolute;
+  transform: translate(-50%, 50%);
+  border: 2px solid white;
+  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.metrics-error {
+  padding: 16px;
+  background: #f8d7da;
+  color: #721c24;
+  border-radius: 6px;
+  border: 1px solid #f5c6cb;
+}
+
+.metrics-loading {
+  padding: 16px;
+  text-align: center;
+  color: #6c757d;
+}

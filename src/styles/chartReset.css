@@ -1,0 +1,74 @@
+/* Chart container reset styles */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Default height */
+  min-height: 200px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Ensure parent containers of responsive charts have proper dimensions */
+.chart-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+/* Specific heights for different chart types */
+.chart-container.small {
+  height: 250px;
+}
+
+.chart-container.medium {
+  height: 350px;
+}
+
+.chart-container.large {
+  height: 450px;
+}
+
+/* For flex layouts */
+.chart-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.chart-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Debug styles */
+.chart-container[data-debug-issue] {
+  border: 2px dashed red;
+  position: relative;
+}
+
+.chart-container[data-debug-issue]::after {
+  content: attr(data-debug-issue);
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chart-row {
+    flex-direction: column;
+  }
+  
+  .chart-column {
+    width: 100%;
+  }
+}

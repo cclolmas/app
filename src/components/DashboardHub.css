@@ -1,0 +1,54 @@
+.dashboard-hub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Adjust as needed */
+  text-align: center;
+}
+
+.dashboard-hub h1 {
+  margin-bottom: 40px; /* Space below title */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center buttons horizontally */
+  gap: 15px; /* Space between buttons */
+  width: 100%;
+  max-width: 400px; /* Max width for the button group */
+}
+
+.hub-button {
+  display: block; /* Make link behave like a block */
+  padding: 12px 25px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%; /* Make buttons take full width of container */
+  box-sizing: border-box; /* Include padding and border in width */
+  transition: background-color 0.3s ease;
+}
+
+.hub-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Optional: For horizontal layout on wider screens */
+@media (min-width: 600px) {
+  .button-container {
+    flex-direction: row; /* Arrange buttons horizontally */
+    justify-content: center; /* Center buttons horizontally */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 20px;
+  }
+  .hub-button {
+     width: auto; /* Adjust width automatically */
+     min-width: 200px; /* Ensure minimum width */
+  }
+}

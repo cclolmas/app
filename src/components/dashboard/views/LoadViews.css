@@ -1,0 +1,831 @@
+.load-view-container {
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Estado de carregamento */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.loading-icon {
+  font-size: 3rem;
+  color: #9c27b0;
+  margin-bottom: 1rem;
+}
+
+/* Cabeçalho com pontuação */
+.load-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.load-score {
+  display: flex;
+  align-items: center;
+}
+
+.score-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 6px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.score-circle span {
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.score-circle small {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.load-score h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #555;
+}
+
+/* Seletor de intervalo de tempo */
+.time-range-selector {
+  display: flex;
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  padding: 0.3rem;
+}
+
+.time-range-selector button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.time-range-selector button.active {
+  background-color: #9c27b0;
+  color: white;
+}
+
+/* Abas de navegação */
+.load-tabs {
+  display: flex;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1.5rem;
+}
+
+.load-tabs button {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #666;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+}
+
+.load-tabs button.active {
+  color: #9c27b0;
+  border-bottom: 3px solid #9c27b0;
+}
+
+.load-tabs button svg {
+  margin-right: 0.5rem;
+}
+
+/* Conteúdo das abas */
+.tab-content {
+  margin-top: 1rem;
+}
+
+.chart-container {
+  margin-bottom: 2rem;
+  height: 300px;
+}
+
+/* Grade de métricas */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.metric-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.metric-card h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #444;
+  font-size: 1.1rem;
+}
+
+.metric-value {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.trend {
+  margin-left: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.trend-increasing {
+  color: #4caf50;
+}
+
+.trend-decreasing {
+  color: #f44336;
+}
+
+.trend-stable {
+  color: #ff9800;
+}
+
+.metric-description {
+  margin: 0;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+/* Visão de componentes */
+.components-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.donut-chart-container, 
+.bar-chart-container {
+  max-height: 400px;
+}
+
+/* Layout de grade para os gráficos */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.chart-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-title {
+  font-size: 1.1rem;
+  color: #444;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.chart-container {
+  flex: 1;
+  min-height: 280px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-chart-container, 
+.bar-chart-container {
+  height: 100%;
+  width: 100%;
+  min-height: 300px;
+}
+
+/* Estilos para o gráfico de radar */
+.radar-chart-container {
+  padding: 1rem;
+  height: 100%;
+}
+
+.radar-chart-full-container {
+  height: 500px;
+  margin: 1rem 0 2rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Estilos para a visualização de perfil */
+.profile-view {
+  padding: 1rem 0;
+}
+
+.profile-header {
+  margin-bottom: 1.5rem;
+}
+
+.profile-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.profile-header p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.profile-metrics h3 {
+  font-size: 1.3rem;
+  margin: 1.5rem 0 1rem;
+  color: #444;
+}
+
+.profile-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.profile-metric-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.profile-metric-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.profile-metric-values {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-metric-value {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+.metric-label {
+  color: #555;
+}
+
+.metric-value {
+  font-weight: 600;
+}
+
+.metric-value.positive {
+  color: #4caf50;
+}
+
+.metric-value.negative {
+  color: #f44336;
+}
+
+/* Estilos adicionais para os cards de métricas do perfil com descrições */
+.axis-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.8rem 0;
+  line-height: 1.4;
+  padding-top: 0.5rem;
+  border-top: 1px solid #eee;
+}
+
+.axis-literature {
+  font-size: 0.8rem;
+  color: #777;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Visão de anomalias */
+.anomalies-view .info-box {
+  display: flex;
+  align-items: center;
+  background-color: #e3f2fd;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.anomalies-view .info-box svg {
+  color: #2196f3;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.anomalies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.anomaly-item {
+  display: flex;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.anomaly-marker {
+  width: 8px;
+}
+
+.severity-high .anomaly-marker {
+  background-color: #f44336;
+}
+
+.severity-medium .anomaly-marker {
+  background-color: #ff9800;
+}
+
+.severity-low .anomaly-marker {
+  background-color: #ffeb3b;
+}
+
+.anomaly-content {
+  flex: 1;
+  padding: 1rem;
+}
+
+.anomaly-time {
+  font-weight: bold;
+  color: #555;
+}
+
+.anomaly-description {
+  margin: 0.5rem 0;
+}
+
+.anomaly-severity {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.no-data {
+  text-align: center;
+  padding: 3rem 0;
+  color: #777;
+}
+
+/* Estilos para controles de seleção de estudantes */
+.student-selection-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.student-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.student-selector label {
+  font-weight: 500;
+  color: #555;
+}
+
+.student-selector select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: white;
+  font-size: 1rem;
+  min-width: 180px;
+}
+
+.comparison-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.comparison-toggle label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  color: #555;
+}
+
+.comparison-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #9c27b0;
+}
+
+/* Estilos para a visualização de distribuição */
+.distribution-view {
+  padding: 1rem 0;
+}
+
+.distribution-header {
+  margin-bottom: 1.5rem;
+}
+
+.distribution-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.distribution-header p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.distribution-filters {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.filter-group label {
+  font-weight: 500;
+  color: #555;
+}
+
+.filter-group select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: white;
+  font-size: 0.95rem;
+  min-width: 160px;
+}
+
+.histogram-container {
+  height: 450px;
+  margin-bottom: 2rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+}
+
+.distribution-stats h3,
+.distribution-interpretation h3 {
+  font-size: 1.3rem;
+  margin: 1.5rem 0 1rem;
+  color: #444;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.stat-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+}
+
+.stat-card p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.distribution-interpretation {
+  background-color: #f5f7fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.distribution-interpretation p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.distribution-interpretation p:last-child {
+  margin-bottom: 0;
+}
+
+/* Estilos para a legenda da escala SEQ */
+.seq-scale-legend {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #f0f2f5;
+  border-radius: 8px;
+}
+
+.seq-legend-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.seq-legend-item span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #e0e0e0;
+  color: #333;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.seq-legend-item label {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+/* Estilos para o painel de hipóteses */
+.hypothesis-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f0f4f8;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  margin-top: 1rem;
+  border-left: 4px solid #3f51b5;
+}
+
+.hypothesis-label {
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-right: 0.8rem;
+}
+
+.hypothesis-text {
+  color: #333;
+  font-weight: 500;
+}
+
+.hypothesis-panel {
+  background-color: #f9f9ff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid #3f51b5;
+}
+
+.hypothesis-panel h3 {
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.hypothesis-panel h3::before {
+  content: "H4";
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  margin-right: 0.8rem;
+}
+
+.hypothesis-description {
+  color: #444;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.hypothesis-findings {
+  color: #333;
+  font-weight: 500;
+  background-color: rgba(63, 81, 181, 0.1);
+  padding: 0.8rem;
+  border-radius: 4px;
+}
+
+/* Estilos para o painel de filtros globais */
+.global-filters-panel {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+}
+
+.global-filters-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.global-filters-title svg {
+  margin-right: 0.5rem;
+  color: #7b1fa2;
+}
+
+.global-filters-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.filter-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-control label {
+  color: #555;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.filter-control select,
+.filter-control input {
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  font-size: 0.9rem;
+  min-width: 120px;
+}
+
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.active-filter-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(156, 39, 176, 0.1);
+  border-radius: 16px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
+  color: #7b1fa2;
+}
+
+.active-filter-tag .remove-filter {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.active-filter-tag:hover {
+  background-color: rgba(156, 39, 176, 0.15);
+}
+
+@media (max-width: 768px) {
+  .load-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .components-view {
+    grid-template-columns: 1fr;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .radar-chart-full-container {
+    height: 350px;
+  }
+
+  .student-selection-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .distribution-filters {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .histogram-container {
+    height: 350px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .global-filters-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-control {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .filter-control select,
+  .filter-control input {
+    width: 100%;
+  }
+}
+
+/* Manter o layout responsivo */
+@media (max-width: 992px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .chart-container {
+    min-height: 250px;
+  }
+}

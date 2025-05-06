@@ -1,0 +1,59 @@
+/* ...existing code... */
+
+/* Affordances visuais */
+.guide-highlight {
+  position: relative;
+  z-index: 30;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.5), 0 0 0 8px rgba(59, 130, 246, 0.3);
+  transition: box-shadow 0.3s ease;
+  border-radius: 4px;
+}
+
+.interactive-element {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.interactive-element:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.interactive-element:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.focus-point {
+  position: relative;
+}
+
+.focus-point::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+  
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+/* ...existing code... */

@@ -1,0 +1,69 @@
+<div class="performance-toggle" [class.open]="showDashboard" (click)="toggleDashboard()">
+  <span class="fps-indicator" [ngClass]="averageFps < 30 ? 'low' : 'good'">
+    {{ averageFps.toFixed(1) }} FPS
+  </span>
+</div>
+
+<div class="performance-dashboard" *ngIf="showDashboard">
+  <div class="dashboard-header">
+    <h2>Performance Dashboard</h2>
+    <button class="clear-btn" (click)="clearMetrics()">Clear</button>
+  </div>
+
+  <div class="metrics-container">
+    <div class="metric-section">
+      <h3>FPS Chart</h3>
+      <div class="fps-chart">
+        <div class="fps-bar" *ngFor="let frame of frameRateData.slice(-50)"
+             [style.height.%]="(frame.fps > 60 ? 60 : frame.fps) / 60 * 100"
+             [ngClass]="frame.fps < 30 ? 'low' : 'good'">
+        </div>
+      </div>
+      <div class="fps-stats">
+        <span>Average: {{ averageFps.toFixed(1) }} FPS</span>
+      </div>
+    </div>
+
+    <div class="metric-section">
+      <h3>HTTP Requests</h3>
+      <div class="metric-table">
+        <div class="table-header">
+          <div class="col">Endpoint</div>
+          <div class="col">Duration (ms)</div>
+        </div>
+        <div class="table-row" *ngFor="let metric of getHttpMetrics()">
+          <div class="col">{{ metric.name.replace('HTTP:', '') }}</div>
+          <div class="col">{{ metric.duration?.toFixed(2) }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="metric-section">
+      <h3>Render Performance</h3>
+      <div class="metric-table">
+        <div class="table-header">
+          <div class="col">Component</div>
+          <div class="col">Duration (ms)</div>
+        </div>
+        <div class="table-row" *ngFor="let metric of getRenderMetrics()">
+          <div class="col">{{ metric.name.replace('RENDER:', '') }}</div>
+          <div class="col">{{ metric.duration?.toFixed(2) }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="metric-section">
+      <h3>Event Handlers</h3>
+      <div class="metric-table">
+        <div class="table-header">
+          <div class="col">Event</div>
+          <div class="col">Duration (ms)</div>
+        </div>
+        <div class="table-row" *ngFor="let metric of getEventMetrics()">
+          <div class="col">{{ metric.name.replace('EVENT:', '') }}</div>
+          <div class="col">{{ metric.duration?.toFixed(2) }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

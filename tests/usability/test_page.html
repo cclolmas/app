@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Usabilidade - Visualizações CL-CompL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .header {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .task-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .visualization {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: white;
+            min-height: 400px;
+            margin-bottom: 20px;
+            padding: 15px;
+            position: relative;
+        }
+        .viz-controls {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 6px;
+        }
+        .viz-caption {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .task-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .timer {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #dc3545;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .commentary-box {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .wizard-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translate(50%, -50%);
+            width: 100%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: -1;
+        }
+        .step-circle {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            color: #6c757d;
+            margin-bottom: 8px;
+        }
+        .step.active .step-circle {
+            background-color: #007bff;
+            color: white;
+        }
+        .step.completed .step-circle {
+            background-color: #28a745;
+            color: white;
+        }
+        .view-switch {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .hidden-view {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="text-center">Teste de Usabilidade - Visualizações CL-CompL</h1>
+            <p class="lead text-center">Avaliação da intuitividade e utilidade das visualizações de trade-off de complexidade</p>
+        </div>
+
+        <!-- Progress Steps -->
+        <div class="wizard-steps">
+            <div class="step active" id="step-intro">
+                <div class="step-circle">1</div>
+                <div>Introdução</div>
+            </div>
+            <div class="step" id="step-tasks">
+                <div class="step-circle">2</div>
+                <div>Tarefas</div>
+            </div>
+            <div class="step" id="step-feedback">
+                <div class="step-circle">3</div>
+                <div>Feedback</div>
+            </div>
+            <div class="step" id="step-completion">
+                <div class="step-circle">4</div>
+                <div>Conclusão</div>
+            </div>
+        </div>
+
+        <!-- Introduction View -->
+        <div class="view active-view" id="intro-view" data-view-id="intro">
+            <div class="task-card">
+                <h2>Bem-vindo(a) ao teste de usabilidade</h2>
+                <p>Neste estudo, você irá interagir com diversas visualizações que representam métricas de qualidade de código em projetos de software. As visualizações mostram a relação entre:</p>
+                <ul>
+                    <li><strong>Complexidade Ciclomática (CL)</strong> - Mede a complexidade estrutural através do número de caminhos independentes do código</li>
+                    <li><strong>Complexidade Léxica (CompL)</strong> - Mede a dificuldade de leitura e compreensão do código</li>
+                </ul>
+                <p>Você será solicitado(a) a realizar algumas tarefas utilizando estas visualizações. Por favor, verbalize seus pensamentos enquanto explora e tenta completar as tarefas.</p>
+                <p>Durante o teste, um pesquisador estará presente para observar suas interações e anotar suas observações. Sinta-se à vontade para fazer perguntas a qualquer momento.</p>
+                
+                <div class="mt-4">
+                    <h4>Instruções</h4>
+                    <ol>
+                        <li>Você realizará 5 tarefas diferentes</li>
+                        <li>Verbalize seus pensamentos enquanto utiliza as visualizações</li>
+                        <li>Não há respostas certas ou erradas - estamos avaliando as visualizações, não você</li>
+                        <li>Você pode pedir ajuda ao pesquisador se ficar completamente bloqueado(a)</li>
+                    </ol>
+                </div>
+                
+                <div class="d-flex justify-content-end mt-4">
+                    <button class="btn btn-primary view-switch" data-target-view="tasks">Iniciar tarefas <i class="fas fa-arrow-right ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasks View -->
+        <div class="view hidden-view" id="tasks-view" data-view-id="tasks">
+            <div class="timer mb-3 p-2 bg-light rounded">
+                Tempo decorrido: <span id="task-timer">00:00</span>
+            </div>
+            
+            <!-- Task Navigation -->
+            <div class="mb-4">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary task-btn active" data-task-id="task1">Tarefa 1</button>
+                    <button type="button" class="btn btn-outline-primary task-btn" data-task-id="task2">Tarefa 2</button>
+                    <button type="button" class="btn btn-outline-primary task-btn" data-task-id="task3">Tarefa 3</button>
+                    <button type="button" class="btn btn-outline-primary task-btn" data-task-id="task4">Tarefa 4</button>
+                    <button type="button" class="btn btn-outline-primary task-btn" data-task-id="task5">Tarefa 5</button>
+                </div>
+            </div>
+
+            <!-- Task 1 -->
+            <div class="task-content active-task" id="task1-content">
+                <div class="task-card">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="visualization" data-viz-id="bars-with-curve">
+                                <h5>Gráfico de Barras com Curva: CL x CompL</h5>
+                                <div class="viz-controls">
+                                    <select class="form-select control" id="bars-with-curve-project-select">
+                                        <option>Projeto A</option>
+                                        <option>Projeto B</option>
+                                        <option>Projeto C</option>
+                                    </select>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center h-100">
+                                    <p class="text-muted text-center">[Simulação: Aqui seria exibido um gráfico de barras com curva entre CL e CompL]</p>
+                                </div>
+                                <p class="viz-caption">Cada barra representa um arquivo de código fonte do projeto</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="visualization" data-viz-id="heatmap">
+                                <h5>Mapa de Calor: Distribuição CL-CompL</h5>
+                                <div class="viz-controls">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task 2 -->
+            <div class="task-content" id="task2-content" style="display: none;">
+                <div class="task-card">
+                    <h2>Tarefa 2: Identificação de Padrões</h2>
+                    <p class="lead">Avalie sua capacidade de perceber padrões nas visualizações</p>
+                    <div class="alert alert-info">
+                        <p><strong>Instrução:</strong> Olhando para o gráfico de dispersão CL-CompL, identifique três clusters ou grupos de arquivos com características similares. Explique o que caracteriza cada grupo.</p>
+                    </div>
+                    
+                    <div class="visualization" data-viz-id="scatter-clusters">
+                        <h5>Gráfico de Dispersão: CL x CompL (com dados simulados)</h5>
+                        <div class="viz-controls">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input control" type="checkbox" id="show-regions">
+                                <label class="form-check-label" for="show-regions">Mostrar regiões</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input control" type="checkbox" id="show-labels">
+                                <label class="form-check-label" for="show-labels">Mostrar rótulos</label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center h-100">
+                            <p class="text-muted text-center">[Simulação: Aqui seria exibido um gráfico de dispersão com clusters visíveis]</p>
+                        </div>
+                        <p class="viz-caption">Identifique agrupamentos naturais nos dados</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h5>Descreva os três grupos que você identificou:</h5>
+                        <div class="mb-3">
+                            <label class="form-label"><strong>Grupo 1:</strong></label>
+                            <textarea class="form-control commentary-box" rows="2" placeholder="Características do grupo 1..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><strong>Grupo 2:</strong></label>
+                            <textarea class="form-control commentary-box" rows="2" placeholder="Características do grupo 2..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"><strong>Grupo 3:</strong></label>
+                            <textarea class="form-control commentary-box" rows="2" placeholder="Características do grupo 3..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="task-nav mt-4">
+                        <button class="btn btn-secondary prev-task" data-prev-task="task1">Tarefa Anterior</button>
+                        <button class="btn btn-primary next-task" data-next-task="task3">Próxima Tarefa</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks 3-5 would follow similar structure -->
+            <!-- For brevity, only showing tasks 1-2 in detail -->
+            
+            <div class="task-content" id="task3-content" style="display: none;">
+                <div class="task-card">
+                    <h2>Tarefa 3: Análise Comparativa</h2>
+                    <!-- Task 3 content would go here -->
+                    <div class="task-nav mt-4">
+                        <button class="btn btn-secondary prev-task" data-prev-task="task2">Tarefa Anterior</button>
+                        <button class="btn btn-primary next-task" data-next-task="task4">Próxima Tarefa</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="task-content" id="task4-content" style="display: none;">
+                <div class="task-card">
+                    <h2>Tarefa 4: Interpretação de Tendências</h2>
+                    <!-- Task 4 content would go here -->
+                    <div class="task-nav mt-4">
+                        <button class="btn btn-secondary prev-task" data-prev-task="task3">Tarefa Anterior</button>
+                        <button class="btn btn-primary next-task" data-next-task="task5">Próxima Tarefa</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="task-content" id="task5-content" style="display: none;">
+                <div class="task-card">
+                    <h2>Tarefa 5: Aplicação Prática</h2>
+                    <!-- Task 5 content would go here -->
+                    <div class="task-nav mt-4">
+                        <button class="btn btn-secondary prev-task" data-prev-task="task4">Tarefa Anterior</button>
+                        <button class="btn btn-success view-switch" data-target-view="feedback">Finalizar Tarefas</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback View -->
+        <div class="view hidden-view" id="feedback-view" data-view-id="feedback">
+            <div class="task-card">
+                <h2>Feedback sobre as Visualizações</h2>
+                <p>Agora que você completou as tarefas, gostaríamos de saber sua opinião sobre as visualizações que você utilizou.</p>
+                
+                <form id="feedback-form">
+                    <div class="mb-3">
+                        <label class="form-label">Em uma escala de 1 a 5, quão intuitivas você considerou as visualizações?</label>
+                        <div class="d-flex align-items-center">
+                            <span class="me-2">Nada intuitivas</span>
+                            <div class="btn-group" role="group">
+                                <input type="radio" class="btn-check" name="intuitive-rating" id="intuitive1" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="intuitive1">1</label>
+                                <input type="radio" class="btn-check" name="intuitive-rating" id="intuitive2" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="intuitive2">2</label>
+                                <input type="radio" class="btn-check" name="intuitive-rating" id="intuitive3" autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="intuitive3">3</label>
+                                <input type="radio" class="btn-check" name="intuitive-rating" id="intuitive4" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="intuitive4">4</label>
+                                <input type="radio" class="btn-check" name="intuitive-rating" id="intuitive5" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="intuitive5">5</label>
+                            </div>
+                            <span class="ms-2">Extremamente intuitivas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Qual visualização você considerou mais útil para entender o trade-off CL-CompL?</label>
+                        <select class="form-select">
+                            <option>Gráfico de dispersão</option>
+                            <option>Mapa de calor</option>
+                            <option>Gráfico de barras empilhadas</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">O que você mais gostou nas visualizações?</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">O que você menos gostou nas visualizações?</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Após utilizar as visualizações, como você explicaria o trade-off entre CL e CompL para um colega?</label>
+                        <textarea class="form-control" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Quais melhorias você sugeriria para estas visualizações?</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                </form>
+                
+                <div class="d-flex justify-content-between mt-4">
+                    <button class="btn btn-secondary view-switch" data-target-view="tasks">Voltar às tarefas</button>
+                    <button class="btn btn-success view-switch" data-target-view="completion">Enviar feedback</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completion View -->
+        <div class="view hidden-view" id="completion-view" data-view-id="completion">
+            <div class="task-card text-center">
+                <div class="mb-4">
+                    <i class="fas fa-check-circle text-success" style="font-size: 5rem;"></i>
+                </div>
+                <h2>Obrigado pela sua participação!</h2>
+                <p class="lead">Seus comentários são extremamente valiosos para melhorar nossas visualizações.</p>
+                <p>O teste foi concluído com sucesso. O pesquisador responsável entrará em contato com você se houver qualquer dúvida adicional.</p>
+                
+                <div class="mt-5">
+                    <p><strong>Caso tenha interesse nos resultados deste estudo, deixe seu e-mail abaixo:</strong></p>
+                    <div class="input-group mb-3 mx-auto" style="max-width: 400px;">
+                        <input type="email" class="form-control" placeholder="Seu e-mail">
+                        <button class="btn btn-outline-primary" type="button">Inscrever</button>
+                    </div>
+                    <p class="small text-muted">Seu e-mail não será compartilhado e será usado apenas para enviar os resultados deste estudo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="interaction_logger.js"></script>
+    <script>
+        // Initialize the interaction logger
+        const logger = new InteractionLogger('test-user', 'session-' + Date.now());
+        
+        // Timer functionality
+        let startTime;
+        let timerInterval;
+        
+        function startTimer() {
+            startTime = Date.now();
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+        
+        function updateTimer() {
+            const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+            const minutes = Math.floor(elapsedTime / 60).toString().padStart(2, '0');
+            const seconds = (elapsedTime % 60).toString().padStart(2, '0');
+            document.getElementById('task-timer').textContent = `${minutes}:${seconds}`;
+        }
+        
+        // View switching functionality
+        document.querySelectorAll('.view-switch').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetView = this.getAttribute('data-target-view');
+                
+                // Update steps
+                if (targetView === 'tasks') {
+                    document.getElementById('step-intro').classList.remove('active');
+                    document.getElementById('step-intro').classList.add('completed');
+                    document.getElementById('step-tasks').classList.add('active');
+                    startTimer();
+                }
+                else if (targetView === 'feedback') {
+                    document.getElementById('step-tasks').classList.remove('active');
+                    document.getElementById('step-tasks').classList.add('completed');
+                    document.getElementById('step-feedback').classList.add('active');
+                    clearInterval(timerInterval);
+                }
+                else if (targetView === 'completion') {
+                    document.getElementById('step-feedback').classList.remove('active');
+                    document.getElementById('step-feedback').classList.add('completed');
+                    document.getElementById('step-completion').classList.add('active');
+                    
+                    // Save logs when completing the test
+                    logger.saveLogs().catch(error => console.error('Error saving logs:', error));
+                }
+                
+                // Hide all views
+                document.querySelectorAll('.view').forEach(view => {
+                    view.classList.add('hidden-view');
+                    view.classList.remove('active-view');
+                });
+                
+                // Show the target view
+                const viewElement = document.getElementById(targetView + '-view');
+                viewElement.classList.remove('hidden-view');
+                viewElement.classList.add('active-view');
+                
+                // Log the view change
+                logger.logEvent('view_change', { fromView: document.querySelector('.active-view')?.dataset.viewId, toView: targetView });
+            });
+        });
+        
+        // Task navigation
+        document.querySelectorAll('.task-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const taskId = this.getAttribute('data-task-id');
+                
+                // Update active button
+                document.querySelectorAll('.task-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Hide all task contents
+                document.querySelectorAll('.task-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+                
+                // Show the selected task content
+                document.getElementById(taskId + '-content').style.display = 'block';
+                
+                // Log the task change
+                logger.startTask(taskId);
+            });
+        });
+        
+        // Next/Prev task buttons
+        document.querySelectorAll('.next-task, .prev-task').forEach(button => {
+            button.addEventListener('click', function() {
+                const taskId = this.getAttribute('data-next-task') || this.getAttribute('data-prev-task');
+                
+                // Trigger click on the corresponding task button
+                document.querySelector(`.task-btn[data-task-id="${taskId}"]`).click();
+            });
+        });
+    </script>
+</body>
+</html>

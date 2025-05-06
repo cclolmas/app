@@ -1,0 +1,31 @@
+{
+  "models": {
+    "Q4": "/path/to/your/q4/model.gguf",
+    "Q8": "/path/to/your/q8/model.gguf"
+  },
+  "tasks": [
+    {
+      "id": "simple_completion",
+      "description": "Simple text completion task",
+      "prompt": "Complete this sentence: The quick brown fox jumps"
+    },
+    {
+      "id": "complex_reasoning",
+      "description": "Complex reasoning task with multiple steps",
+      "prompt": "If a train travels at 60 mph for 3 hours and then at 80 mph for 2 hours, what is the average speed for the entire journey?"
+    },
+    {
+      "id": "code_generation",
+      "description": "Python code generation task",
+      "prompt": "Write a Python function to find the n-th Fibonacci number using recursion with memoization."
+    },
+    {
+      "id": "long_context",
+      "description": "Task with longer context to test memory handling",
+      "prompt": "Summarize the following text in 3 sentences:\n\n[Insert a long text of several paragraphs here that approaches the context length limit]"
+    }
+  ],
+  "output_dir": "/media/sema/400E99720E9961A8/crossdebate_platform/tests/results",
+  "iterations": 20,
+  "timeout": 120
+}
