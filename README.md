@@ -1,7 +1,5 @@
 # CCLOLMAS: Sistema Multi-Agente Local com Orquestrador de Carga Cognitivo-Computacional
 
-![Uploading CCLOLMAS.png…]()
-
 
 ## Visão Geral
 
